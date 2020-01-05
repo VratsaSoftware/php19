@@ -3,10 +3,10 @@
 $i = 20;
 
 switch ($i) {
-	case 1:
+	case $i == 1:
 	echo 'bannana';	
 
-	case 2:
+	case $i > 2:
 	echo 'orange';
 	
 	case 3:
