@@ -20,3 +20,4 @@ var_dump($arr_new);
 $arr_new['name'] = 44;
 var_dump($arr_new);
 
+echo number_format(2.0, 2);
