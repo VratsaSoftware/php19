@@ -13,5 +13,7 @@ session_start();
 	echo "Hello, " . $_SESSION['username'];
 
 	?>
+	<a href="file.php">Back</a>
+	<a href="logout.php">Log Out</a>
 </body>
 </html>

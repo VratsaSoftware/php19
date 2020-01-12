@@ -10,9 +10,10 @@
 
 session_start();
 
-var_dump($_POST['username']);
-
-$_SESSION['username'] = $_POST['username'];
+// var_dump($_POST['username']);
+if(!isset( $_SESSION['username'])){
+	$_SESSION['username'] = $_POST['username'];
+}
 
 echo "Hello, " . $_SESSION['username'];
 
