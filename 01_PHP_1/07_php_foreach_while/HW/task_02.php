@@ -1,10 +1,10 @@
 <?php
 $var = 302;
-$sumDDS = 0;
 
+$sumDDS = 0;
 if($var >= 51 && $var <= 150)
 {
-    $momentSum = 50*0.10;
+    // $momentSum = 50*0.10;
    
     $var = $var - 50;
     $sum = ($var * 0.15) + $step_one;
@@ -12,7 +12,7 @@ if($var >= 51 && $var <= 150)
 }
 elseif($var >= 151 && $var <= 250)
 {
-    $momentSum = 50*0.10;
+    // $momentSum = 50*0.10;
     
     $var = $var - 50;
     $momentSum = $momentSum + 100*0.15;

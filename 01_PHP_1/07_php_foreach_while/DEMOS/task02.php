@@ -5,7 +5,8 @@
 //set variable 
 $all = 1;
 
-$arr = [1, 2, 3];
+$arr = [1, 'flag', 3];
+$flag = true;
 
 //if empty array 
 if( empty($arr) ){
@@ -16,9 +17,14 @@ if( empty($arr) ){
 			$all *= $value;
 			//$all = $all * $value;
 		} else {
-			echo 'Not a valid input';
+			$all = 'Not a valid input';
+			// echo 'Not a valid input';
+			// $flag = false;
 			break;
 		}
 	}
+	// if( $flag == true ){
+	// 	echo $all;
+	// }
 	echo $all;
 }
