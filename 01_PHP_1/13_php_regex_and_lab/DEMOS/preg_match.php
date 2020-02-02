@@ -7,7 +7,9 @@ $pattern = '/([a-z0-9]+)@([a-z]+)\.([a-z]{2,3})/';
 $arr = [];
 $result = preg_match($pattern, $text, $arr);
 
-var_dump($result);
+// var_dump($result);
+echo "<pre>";
 var_dump($arr);
+echo "</pre>";
 
-echo $arr[1];
+// echo $arr[1];

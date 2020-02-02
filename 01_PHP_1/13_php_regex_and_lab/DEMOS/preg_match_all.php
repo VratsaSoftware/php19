@@ -7,11 +7,11 @@ $pattern = '/([a-z0-9]+)@([a-z]+)\.([a-z]{2,3})/';
 $arr = [];
 $result = preg_match_all($pattern, $text, $arr);
 
-// var_dump($result);
+var_dump($result);
 echo "<pre>";
 
-// var_dump($arr);
+var_dump($arr);
 
-var_dump( $arr[1]);
+// var_dump( $arr[1]);
 
 echo "</pre>";
