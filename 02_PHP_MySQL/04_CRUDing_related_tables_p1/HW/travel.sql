@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 март 2020 в 08:16
+-- Generation Time: 15 март 2020 в 14:05
 -- Версия на сървъра: 10.1.36-MariaDB
 -- PHP Version: 7.0.33
 
@@ -25,6 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура на таблица `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(110) NOT NULL,
+  `category_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Схема на данните от таблица `categories`
+--
+
+INSERT INTO `categories` (`category_id`, `category_name`, `category_description`) VALUES
+(1, '5 stars', 'descriptions'),
+(2, '4 stars', 'description');
+
+-- --------------------------------------------------------
+
+--
 -- Структура на таблица `countries`
 --
 
@@ -40,8 +60,8 @@ CREATE TABLE `countries` (
 
 INSERT INTO `countries` (`country_id`, `name`, `date_deleted`) VALUES
 (1, 'Turkey', NULL),
-(2, 'Rome', NULL),
-(4, 'Venice', NULL);
+(2, 'Italy', NULL),
+(4, 'Greece', NULL);
 
 -- --------------------------------------------------------
 
@@ -66,7 +86,7 @@ INSERT INTO `destinations` (`destination_id`, `destination_name`, `country_id`, 
 (3, 'Lara', 1, NULL),
 (4, 'Belek', 1, NULL),
 (5, 'Marmaris', 1, NULL),
-(6, 'Bodrum', 2, NULL);
+(6, 'Bodrum', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,6 +120,7 @@ CREATE TABLE `hotels` (
   `hotel_id` int(11) NOT NULL,
   `hotel_name` varchar(150) NOT NULL,
   `destination_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `rooms` int(11) NOT NULL,
   `date_deleted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,9 +129,9 @@ CREATE TABLE `hotels` (
 -- Схема на данните от таблица `hotels`
 --
 
-INSERT INTO `hotels` (`hotel_id`, `hotel_name`, `destination_id`, `rooms`, `date_deleted`) VALUES
-(1, 'Hotel 1', 6, 350, NULL),
-(2, 'Hotel No Name', 6, 500, NULL);
+INSERT INTO `hotels` (`hotel_id`, `hotel_name`, `destination_id`, `category_id`, `rooms`, `date_deleted`) VALUES
+(1, 'Hotel 1', 6, 1, 350, NULL),
+(2, 'Hotel No Name', 6, 2, 500, NULL);
 
 -- --------------------------------------------------------
 
@@ -149,6 +170,12 @@ INSERT INTO `packages` (`package_id`, `duration_id`, `destination_id`, `price`, 
 --
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
+
+--
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
@@ -185,6 +212,12 @@ ALTER TABLE `packages`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `countries`
