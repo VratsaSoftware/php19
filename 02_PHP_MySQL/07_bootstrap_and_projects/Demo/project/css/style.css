@@ -1,0 +1,41 @@
+.btn-primary {
+	background: #1AD923
+}
+
+.container {
+	background: #F5C1C1
+}
+
+.col-lg-6:first-of-type {
+	background: #10F893
+}
+
+.col-lg-6:nth-of-type(3) {
+	background: #F3DA05
+}
+.col-lg-6:nth-of-type(4) {
+	background: #F34805
+}
+
+.col-lg-6:nth-of-type(5) {
+	background: #054EF3
+}
+
+.col-lg-7{
+	background: #18A1F8
+}
+
+/*div:first-of-type {
+	background: #10F893
+}
+
+div:nth-of-type(3) {
+	background: #F3DA05
+}
+div:nth-of-type(4) {
+	background: #F34805
+}
+
+div:nth-of-type(5) {
+	background: #054EF3
+}*/

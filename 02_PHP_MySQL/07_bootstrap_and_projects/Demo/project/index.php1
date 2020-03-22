@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<!-- <h1>h1. Bootstrap heading<small>Secondary text</small></h1>
+	<h2>h2. Bootstrap heading</h2>
+	<h3>h3. Bootstrap heading</h3>
+	<h4>h4. Bootstrap heading</h4>
+	<h5>h5. Bootstrap heading</h5>
+	<h6>h6. Bootstrap heading</h6>
+	<blockquote>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+	</blockquote> -->
+
+	<!-- <p>
+		<button type="button" class="btn btn-primary btn-lg">Large button</button>
+		<button type="button" class="btn btn-default btn-lg">Large button</button>
+	</p>
+	<p>
+		<button type="button" class="btn btn-primary">Default button</button>
+		<button type="button" class="btn btn-default">Default button</button>
+	</p>
+	<p>
+		<button type="button" class="btn btn-primary btn-sm">Small button</button>
+		<button type="button" class="btn btn-info btn-sm">Small button</button>
+	</p>
+	<p>
+		<button type="button" class="btn btn-warning btn-xs">Extra small button</button>
+		<button type="button" class="btn btn-danger btn-xs">Extra small button</button>
+	</p>
+	<a class="btn btn-success btn-xs" href="">Link</a> -->
+	<!-- <div class="container">
+		<table class="table table-striped table-bordered">
+			<tr>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>		
+		</table>
+	</div> -->
+	<div class="container">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile">File input</label>
+				<input type="file" id="exampleInputFile">
+				<p class="help-block">Example block-level help text here.</p>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox"> Check me out
+				</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
