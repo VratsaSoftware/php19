@@ -1,5 +1,7 @@
 <?php 
-include '../includes/header_inner.php';
+ 
+include '../includes/db_connect.php';
+
 
 $recipe_id = $_GET['id'];
 
@@ -8,21 +10,24 @@ $recipe_query = "SELECT * FROM `recipes` WHERE `date_deleted` IS NULL AND recipe
 
 $result = mysqli_query($conn, $recipe_query);
 $recipe = mysqli_fetch_assoc($result);
-var_dump($result);
+// var_dump($result);
+$title = $recipe['recipe_name'];
 
+include '../includes/header_inner.php'; 
 
 //recipe products
-$products_query = "SELECT * FROM `recipes_products_queantities_units` rpqu JOIN products p ON rpqu.product_id=p.product_id";
+$products_query = "SELECT rpqu.quantity, p.product_name, u.unit_name FROM `recipes_products_queantities_units` rpqu JOIN products p ON rpqu.product_id=p.product_id";
 $products_query.= " JOIN units u ON rpqu.unit_id=u.unit_id WHERE rpqu.recipe_id = $recipe_id";
 
-var_dump($products_query);
+// var_dump($products_query);
 $result_recipe_products = mysqli_query($conn, $products_query);
 
-var_dump($result_recipe_products);
+// var_dump($result_recipe_products);
 ?>
 
 <h3><?= $recipe['recipe_name']?></h3>
 <p><?= $recipe['recipe_descr']?></p>
+<p><?= $recipe['prep_time']?></p>
 <?php 
 if( mysqli_num_rows($result_recipe_products) > 0 ){
 	?>
@@ -37,7 +42,11 @@ if( mysqli_num_rows($result_recipe_products) > 0 ){
 		<?php
 		$num = 1;
 		while($product = mysqli_fetch_assoc($result_recipe_products)){
+
 			?>
+			<pre>
+				<?php var_dump($product) ?>
+			</pre>
 			<tr>
 				<td><?= $num++ ?></td>
 				<td><?= $product['product_name']?></td>
@@ -55,6 +64,7 @@ if( mysqli_num_rows($result_recipe_products) > 0 ){
 }
 ?>
 <a href="update.php?id=<?= $recipe['recipe_id']?>">Update</a>
+<a href="">Similar Recipes</a>
 <?php
 
 

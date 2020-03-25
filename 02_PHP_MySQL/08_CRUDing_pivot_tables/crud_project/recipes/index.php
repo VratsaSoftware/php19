@@ -1,4 +1,8 @@
 <?php 
+$title = 'recipes';
+
+include '../includes/db_connect.php';
+
 include '../includes/header_inner.php';
 
 //1 - need to display only recipe name
@@ -12,9 +16,8 @@ if( mysqli_num_rows($result) > 0 ){
 	<tr>
 		<td>#</td>
 		<td>Recipes</td>
-		<td>***</td>
-		<td>soft delete</td>
-		
+		<td>Preparation time</td>		
+		<td>***</td>		
 	</tr>
 <?php
 $num = 1;
@@ -24,15 +27,13 @@ $num = 1;
 			<td><?= $num ++?></td>
 			<!-- view recipe -->
 			<td><a title="виж рецептата" href="view_recipe.php?id=<?= $row['recipe_id'] ?>"><?= $row['recipe_name'] ?></a></td>	
-			<td><a href="update.php?id=<?= $row['recipe_id'] ?>" class="btn btn-warning">UPDATE</a></td>	
-			<td><a href="soft_delete.php?id=<?= $row['recipe_id'] ?>">SOFT DELETE</a></td>	
+			<td><?= $row['prep_time'] ?></td>
+			<td><a href="update.php?id=<?= $row['recipe_id'] ?>" class="btn btn-warning">UPDATE</a></td>
 		</tr>
 		<?php
 	}
 ?>
 </table>
-
-<a href="recycle_bin.php">Recycle Bin</a>
 <?php
 
 } else {
