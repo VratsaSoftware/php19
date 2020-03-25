@@ -78,19 +78,7 @@ $all_units = mysqli_fetch_all($all_units_result, MYSQLI_ASSOC);
 </div>
 <?php 
 if( !empty($_POST) ){
-	$unit_name = $_POST['unit_name'];
-	$unit_id = $_POST['unit_id'];
-
-	$update_query = "UPDATE `units` SET `unit_name`='". $unit_name ."' WHERE `unit_id`=".$unit_id;
-
-	// var_dump($update_query);
-	$update_res = mysqli_query($conn, $update_query);
-	if( !$update_res ){
-		die('Update failed!' . mysqli_error($conn));
-	}else {
-		header("Location: index.php");
-		echo "Update successful!";
-	}
+	
 }
 
 include '../includes/footer.php'
