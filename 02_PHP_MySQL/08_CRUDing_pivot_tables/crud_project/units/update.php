@@ -1,5 +1,9 @@
 <?php 
+include '../includes/db_connect.php';
+$title = 'update units';
+
 include '../includes/header_inner.php';
+
 $unit_id = $_GET['id'];
 
 $read_query = "SELECT * FROM units WHERE unit_id=".$unit_id;

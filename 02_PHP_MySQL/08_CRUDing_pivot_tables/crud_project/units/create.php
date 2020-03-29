@@ -1,4 +1,7 @@
 <?php 
+include '../includes/db_connect.php';
+$title = 'create units';
+
 include '../includes/header_inner.php';
 ?>
 
@@ -21,7 +24,7 @@ $result = mysqli_query($conn, $insert_query);
 
 var_dump($result);
 if($result){
-	echo "Recorde created successfuly";
+	echo "Record created successfuly";
 } else {
 	die('Query failed!' . mysqli_error($conn));
 }

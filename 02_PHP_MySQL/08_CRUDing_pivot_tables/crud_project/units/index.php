@@ -1,5 +1,8 @@
 <?php 
+include '../includes/db_connect.php';
+$title = 'read units';
 include '../includes/header_inner.php';
+
 
 //1
 $read_query = "SELECT * FROM `units` WHERE `date_deleted` IS NULL";
