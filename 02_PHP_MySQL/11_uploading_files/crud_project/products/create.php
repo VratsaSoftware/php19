@@ -12,21 +12,36 @@ include '../includes/header_inner.php';
 				<input type="text" id="product-name" name="product_name" class="form-control">
 			</div>
 			<div class="form-group">
+
 				<label for="product-image">Product image</label>
-				<input type="file" id="product-image" name="product_image">
+				<input type="file" id="product-image" name="product_image" value="../uploads/5865.jpg">
 			</div>
 			<button type="submit" class="btn btn-default">Save</button>
 		</form>
 	</div>
 </div>
 <?php  
-
+echo time();
 if( !empty( $_POST ) && !empty( $_FILES ) ){ 
 	if( !empty( $_POST['product_name'] ) && !empty( $_FILES['product_image'] ) ){
+
+		if ($_FILES['product_image']['size'] > 100000) { 
+       		die('upload file up to 100kb');
+   		 } 
 //1 
 //var_dump($_FILES);
 //save file to desired folder
 //the upload dir must exist - created before first upload
+// $allowed_file_extensions = ['mp3, wav'];
+
+// $filename = $_FILES['product_image']['name'];
+
+// $file_arr = explode('.', $filename);
+
+// if( in_array($file_arr[0], $allowed_file_extensions)){
+
+// }
+
 		$uploaddir = '../uploads/';
 		$uploadfile = $uploaddir . basename($_FILES['product_image']['name']);
 		$filename = basename($_FILES['product_image']['name']);
