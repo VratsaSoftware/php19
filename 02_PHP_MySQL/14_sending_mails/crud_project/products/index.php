@@ -25,7 +25,10 @@ $number_of_pages = ceil($number_of_pages);
 //see ../includes/header_inner.php';
 
 //6 get current page number from the request
-$current_page = $_GET['page'];
+$current_page = 1;
+if( isset( $_GET['page'] ) ){
+	$current_page = $_GET['page'];
+} 
 
 //7 set page param in the links in the pagination block, see below
 

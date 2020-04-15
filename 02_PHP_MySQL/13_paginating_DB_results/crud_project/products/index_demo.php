@@ -26,13 +26,18 @@ $number_of_pages = ceil($number_of_pages);
 
 //6 get current page number from the request
 $current_page = $_GET['page'];
+if( isset($_GET['order']) ){
+	$order = $_GET['order'];
+} else {
+	$order = 'product_name';
+}
 
 //7 set page param in the links in the pagination block, see below
 
 //8 retrieve set of products, LIMIT = products_per_pages, skip = (current_page - 1)*products_per_page
 $limit = $products_per_page;
 $skip = ( $current_page - 1 ) * $products_per_page;
-$read_query = "SELECT * FROM `products` WHERE `date_deleted` IS NULL LIMIT $skip, $limit";
+$read_query = "SELECT * FROM `products` WHERE `date_deleted` IS ORDER BY $order $sort NULL LIMIT $skip, $limit";
 // var_dump($read_query);
 
 $result = mysqli_query($conn, $read_query);
@@ -55,7 +60,7 @@ if( mysqli_num_rows($result) > 0 ){
 		<table style="margin-left: 50px" class="table table-striped">
 			<tr>
 				<td>#</td>
-				<td>Product</td>
+				<td><a title="click here to sort descending" href="index.php?page=1&sort=product_name&order=DESC">down</a>Product<a href="index.php?page=1&sort=product_name&order=ASC">up</a></td>
 				<td>Image</td>
 				<td>***</td>
 
