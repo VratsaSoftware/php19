@@ -10,7 +10,6 @@ if( isset( $_POST['email_subject'] ) ){
 	$subject = 'Default subject';
 }
 if( isset( $_POST['user_message'] ) ){
-
 	$body = "Hi! This is test email send by PHP Script. Can be set up better :)" . $_POST['user_message'];
 } else {
 	$body = "Hi! This is test email send by PHP Script. Can be set up better :)";
@@ -19,6 +18,7 @@ if( isset( $_POST['user_message'] ) ){
 // To send HTML mail, the Content-type header must be set
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
 // Create email headers
 $headers .= 'From: '. $_POST['sender_email'] ."\r\n".
     'Reply-To: '. $_POST['sender_email'] ."\r\n" .

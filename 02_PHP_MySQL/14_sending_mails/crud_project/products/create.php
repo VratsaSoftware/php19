@@ -75,7 +75,8 @@ if( !empty( $_POST ) && !empty( $_FILES ) ){
 			$emails_to = ['kokolina1888@gmail.com', 'mile.tomova@gmail.com', 'kokolina18@abv.bg'];
 
 			//EMAIL NOTIFICATION STEP - 2 - set up email variables
-			$subject = "New Product has been added to our APP:" . $product_name ;
+			$subject = "New Product has been added to our APP: " . $product_name ;
+			
 			$body = "Hi,nn This is test email send by PHP Script";
 			// $headers = "From: sender\'s email"; - all emails will be sent from admin email - you can set it up as a constant, in sendmail.ini file, or pass a value if sender email has a dynamic value
 
