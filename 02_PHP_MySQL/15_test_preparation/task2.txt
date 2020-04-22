@@ -1,0 +1,5 @@
+1/SELECT COUNT(product_id) as b_products FROM `products` WHERE product_name LIKE "б%" OR product_name LIKE "b%"
+2/SELECT r.recipe_id, r.recipe_name, r.recipe_descr, r.prep_time, rpqu.quantity, p.product_name, p.image, u.unit_name FROM `recipes` r JOIN meal_types mt ON r.meal_type_id = mt.meal_type_id JOIN recipes_products_queantities_units rpqu ON r.recipe_id = rpqu.recipe_id JOIN products p ON rpqu.product_id = p.product_id JOIN units u ON rpqu.unit_id = u.unit_id WHERE mt.meal_type_id = 1
+3/SELECT COUNT(r.recipe_id) as count FROM `recipes` r JOIN meal_types mt ON r.meal_type_id = mt.meal_type_id GROUP BY mt.meal_type_id
+SELECT * FROM `recipes`
+4/SELECT date_added, recipe_name, recipe_descr FROM `recipes` WHERE date_deleted IS NULL ORDER BY `date_added` ASC LIMIT 2
