@@ -1,0 +1,16 @@
+1 SELECT productions.production_name, ABS(productions.tickets_sold) FROM productions WHERE director_id = 4
+2SELECT production_name FROM `productions` where year > 2000 ORDER BY `productions`.`income` DESC LIMIT 2
+
+3SELECT
+    productions.production_name,
+    directors.director_name,
+    genres.genre_name,
+    countries.country_name
+FROM
+    `productions`
+JOIN countries on productions.country_id = countries.id
+JOIN directors on productions.director_id=directors.director_id
+JOIN genres on productions.genre_id = genres.genre_id
+ORDER BY directors.director_name
+
+4

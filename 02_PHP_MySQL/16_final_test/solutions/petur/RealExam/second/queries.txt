@@ -1,0 +1,9 @@
+1.  SELECT DISTINCT reviews.film_id, (SELECT COUNT(reviews.film_id) FROM reviews WHERE reviews.film_id = productions.production_id) as count_reviews, productions.production_name FROM reviews LEFT JOIN productions ON reviews.film_id = productions.production_id WHERE productions.date_deleted IS NULL ORDER BY count_reviews DESC LIMIT 3
+2. SELECT AVG(productions.income) FROM productions LEFT JOIN genres ON productions.genre_id = genres.genre_id WHERE genres.genre_name = "thriller" AND productions.date_deleted IS NULL 
+3. SELECT productions.production_name, productions.year FROM productions LEFT JOIN directors ON productions.director_id = directors.director_id WHERE directors.director_name = "Christopher Nolan" AND productions.date_deleted IS NULL ORDER BY productions.year DESC LIMIT 2 
+4. SELECT productions.production_name as production_name, directors.director_name as director_name, countries.country_name as country_name, productions.year as production_year, productions.IMDB_index as imdb_index, productions.tickets_sold as tickets_sold, productions.income as income, genres.genre_name as genre_name FROM productions LEFT JOIN directors ON productions.director_id = directors.director_id LEFT JOIN countries ON productions.country_id = countries.id LEFT JOIN genres ON productions.genre_id = genres.genre_id WHERE productions.date_deleted IS NULL 
+
+
+SELECT DISTINCT reviews.film_id, 
+(SELECT MAX(counted) FROM (SELECT COUNT(reviews.film_id) as counted FROM reviews LEFT JOIN productions ON reviews.film_id = productions.production_id WHERE reviews.film_id = productions.production_id) as T), 
+productions.production_name FROM reviews LEFT JOIN productions ON reviews.film_id = productions.production_id
