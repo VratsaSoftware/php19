@@ -1,0 +1,48 @@
+AddDefaultCharset UTF-8
+DefaultLanguage bg-BG
+
+
+#Prevent directory listing
+Options -Indexes
+
+
+# Set the Time Zone of the Server
+SetEnv TZ Bulgaria/Sofia
+
+#Custom error files
+ErrorDocument 400 /error_messages/error.php
+ErrorDocument 401 /error_messages/error.php
+ErrorDocument 402 /error_messages/error.php
+ErrorDocument 403 /error_messages/error.php
+ErrorDocument 404 /error_messages/error.php
+ErrorDocument 405 /error_messages/error.php
+ErrorDocument 406 /error_messages/error.php
+ErrorDocument 407 /error_messages/error.php
+ErrorDocument 408 /error_messages/error.php
+ErrorDocument 409 /error_messages/error.php
+ErrorDocument 410 /error_messages/error.php
+ErrorDocument 411 /error_messages/error.php
+ErrorDocument 412 /error_messages/error.php
+ErrorDocument 413 /error_messages/error.php
+ErrorDocument 414 /error_messages/error.php
+ErrorDocument 415 /error_messages/error.php
+ErrorDocument 416 /error_messages/error.php
+ErrorDocument 417 /error_messages/error.php
+ErrorDocument 422 /error_messages/error.php
+ErrorDocument 423 /error_messages/error.php
+ErrorDocument 424 /error_messages/error.php
+ErrorDocument 426 /error_messages/error.php
+ErrorDocument 500 /error_messages/error.php
+ErrorDocument 501 /error_messages/error.php
+ErrorDocument 502 /error_messages/error.php
+ErrorDocument 503 /error_messages/error.php
+ErrorDocument 504 /error_messages/error.php
+ErrorDocument 505 /error_messages/error.php
+ErrorDocument 506 /error_messages/error.php
+ErrorDocument 507 /error_messages/error.php
+ErrorDocument 510 /error_messages/error.php
+
+
+php_flag display_startup_errors off
+php_flag display_errors off
+php_value error_log /error_log/error.log

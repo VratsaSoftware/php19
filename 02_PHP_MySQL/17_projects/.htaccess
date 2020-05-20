@@ -1,0 +1,4 @@
+<IfModule mod_fcgid.c>
+AddHandler fcgid-script .php
+FcgidWrapper /home/webdesignvratsa/itvillage.webdesignvratsa.com/php.fcgi .php
+</IfModule>

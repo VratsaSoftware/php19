@@ -1,0 +1,6 @@
+Options +Indexes
+
+AuthType basic
+AuthName "This is private! Authorize you before accesssing it~!"
+AuthUserFile ../.htpasswd
+Require valid-user
