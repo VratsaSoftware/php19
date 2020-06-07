@@ -1,4 +1,4 @@
-function returnReverse(param){
+function returnReverse( param ){
 	let num = +param;
     // var text = num.toString();
     var text = num.toString().split("").reverse().join("");
