@@ -6,21 +6,20 @@
 </head>
 	<body>
 		<div id="parent">
-			<div>Child Divs</div>
-			<div>Child Divs</div>
-			<div>Child Divs</div>
-			<div>Child Divs</div>
+			<div class="some-class">Child Divs</div>
+			<div class="some-class">Child Divs</div>
+			<div class="some-class">Child Divs</div>
+			<div class="some-class">Child Divs</div>
 		</div>		
 	</body>
 	<script>
 		let parent = document.getElementById('parent'),
-		// child_nodes = parent.childNodes;
-		divsChildren = parent.getElementsByTagName('div');
-		// console.log(child_nodes.length)
-		console.log(divsChildren.length)
-		parent.appendChild(document.createElement('div'));
-		console.log(divsChildren.length)
-		
+		child_nodes = parent.childNodes;
+
+		// divsChildren = parent.getElementsByClassName('div');
+		// divsChildren = parent.getElementsByTagName('div');
+		console.log(child_nodes)
+		// -
 
 	</script>
 </html>

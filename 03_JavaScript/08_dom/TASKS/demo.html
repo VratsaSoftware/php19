@@ -594,7 +594,11 @@
 
         let parent = document.getElementById('astroContent');
         console.log(parent);
-        console.log(parent.getElementsByClassName('left'));
+        let lefts = (parent.getElementsByClassName('left'));
+        for( let ind in lefts ){
+          lefts[ind].getElementsByClassName('xxxxxx')
+        }
+        parent.g
       </script>
       
 
