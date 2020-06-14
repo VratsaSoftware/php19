@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form id="email_form">
+		<div>
+			<span>Div Span</span>
+		</div>
+		<span>Span1</span>
+		<span>Span2</span>
+		<span>Span3</span>
+	</form>
+	<script type="text/javascript">
+		// console.log( document.querySelector('#email_form span').length)
+		// console.log( document.querySelectorAll('#email_form span')[1])
+		let spans = document.querySelectorAll('#email_form span');
+		for( let ind in spans ){
+			console.log( spans[ind] );
+		}
+	</script>
+</body>
+</html>
