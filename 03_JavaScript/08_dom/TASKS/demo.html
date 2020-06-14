@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <title>АБВ Поща</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="АБВ Поща е бърза, удобна и сигурна! Разполагате с 15 GB пространство, управлявате контакти, а пощата ви е защитена. Писмата ви са навсякъде с вас, с мобилното приложение на АБВ." />
+  <link href="//img.abv.bg/favicon.ico" rel="shortcut icon" /> 
+  <link rel="stylesheet" href="css/style_20200327.css" />
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.abv.bg/" />
+  <link rel="canonical" href="https://www.abv.bg/" />
+  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/glkfpmcniebkbeakjdpobddpjghbapec" />
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.1.11.4.min.js"></script>
+  <script type="text/javascript" src="js/interface_base.js?v=1592121350745"></script>
+
+  <script type="text/javascript">
+   var currentTime = 1592121350745;
+ </script>
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<!--[if IE 6]><link href="css/ie6_only_style.css" rel="stylesheet" type="text/css" media="all" /><![endif]-->
+
+</head>
+<body>
+  <!--WRAPPER-->
+  <div id="chromeExt" class="fasha">
+    <div class="left">
+      <a href="https://chrome.google.com/webstore/detail/abv-notifier/glkfpmcniebkbeakjdpobddpjghbapec" target="_blank" class="moreinfo">
+        <div class="logo"></div>
+        <div class="message">АБВ добавка за Google Chrome - Бъдете в час с писмата си!</div>
+        <span class="clear"></span>
+      </a>
+    </div>
+    <div class="right">
+     <a href="#" class="addon">Инсталирай</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://chrome.google.com/webstore/detail/abv-notifier/glkfpmcniebkbeakjdpobddpjghbapec" target="_blank">Научи повече</a>
+   </div>
+   <div class="close"></div>
+ </div>
+ <div id="ffExt" class="fasha">
+  <div class="left">
+    <a class="moreinfo" href="https://addons.mozilla.org/bg/firefox/addon/abv-notifier/"  target="_blank">
+      <div class="logo"></div>
+      <div class="message">АБВ добавка за Firefox - бъдете в час с писмата си!</div>
+      <span class="clear"></span>
+    </a>
+  </div>
+  <div class="close"></div>
+</div>
+<div id="explorerAddfav" class="fasha">
+  <div class="left">
+    <div class="moreinfo">
+      <div class="logo"></div>
+      <div class="message">Направи АБВ своя начална страница!</div>
+      <span class="clear"></span>
+    </div>
+  </div>
+  <div class="close"></div>
+</div>
+<div id="wrapper">
+  <!--TOP LINKS-->
+  <div id="toplinks">
+    <div class="left">
+      <a id="abv-Logo" href="https://abv.bg/"></a>    
+      <strong>АБВ Поща</strong>
+      &nbsp;|&nbsp;
+      <a target="_blank" href="http://dox.bg">DOX</a>
+      &nbsp;|&nbsp;
+      <a href="http://apps.abv.bg" target="_blank">АБВ на твой домейн</a>
+    </div>
+    <a class="right" href="https://passport.abv.bg/app/profiles/login"><strong>АБВ профил</strong></a>
+    <span class="right">&nbsp;|&nbsp;</span>
+    <a class="right" href="https://passport.abv.bg/app/profiles/registration"><strong>Регистрация в АБВ</strong></a>
+  </div>
+  <!--\TOP LINKS-->
+  <!--SITE CONTENT-->
+  <div id="siteContent">
+    <header id="mainHeader">
+     <h1><a href="https://abv.bg">АБВ Поща</a></h1>  
+     <!--SEARCH FORM-->
+     <form name="GForm1" id="searchForm" method="get" action="https://search.abv.bg/search.php" target="_blank">
+      <input type="text" value="" name="q" class="defaultValue" placeholder="Търсене в интернет" />
+      <div id="powGoogle"></div>
+      <div class="searchButton"></div>
+    </form>
+    <!--\SEARCH FORM-->
+    <a href="http://mobile.abv.bg/" target="_blank" id="mobileVersion">Мобилни приложения</a>
+  </header>
+  <div id="rowAdv">Реклама</div>
+  <form action="https://passport.abv.bg/app/profiles/login" method="post" name="LogInForm" id="loginForm">
+    <input type="hidden" name="host" value="mail01.abv.bg">
+    <input type="hidden" name="service" value="mail">
+    <div id="leftSide">
+      <h2>Вход в АБВ Поща</h2>
+      <label for="username">АБВ потребител</label>
+      <input  type="text"  id="username" name="username" tabindex="1" class="textField"   />
+      <label for="password">Парола</label>
+      <input type="password" name="password" id="password" tabindex="2"  class="textField"   />
+      <input type="submit" value="Вход" name="loginBut" id="loginBut">
+      <a href="https://passport.abv.bg/app/profiles/lostpass?qstr=http://www.abv.bg" id="lostPasswordLink">Забравена парола</a>
+      <span class="clear"></span>
+      <div class="sepLine"></div>
+      Нямаш профил в АБВ?
+      &nbsp;&nbsp;
+      <a href="https://passport.abv.bg/app/profiles/registration"><strong>Регистрирай се!</strong></a>
+    </div>
+    <div id="promoZone">
+      <a href="#" target="_blank"></a>
+    </div>
+  </form>
+  <!-- banner 300x250 -->
+  <div id="banner_300x250">
+    <div id="nonstandartBanHolder"></div>
+    <iframe id="banner300x250" src="https://bimg.abv.bg/a/r.html?p=10&v=1592121350745&dom=www.abv.bg" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"  width="300" height="250" scrolling="no" frameborder="0"></iframe>
+  </div>
+  <!-- /banner 300x250 -->
+  <br class="clear" />
+  <div style="position: relative; top: 25px;" id="bannerMiddlePage"></div>
+  <div id="rsHolder">
+    <div id="resetSettings">Възстанови първоначалната подредба на блоковете</div>
+    <div class="close"></div>
+  </div>
+  <div id="blocks">
+    <div class="column left">
+      <div id="1" class="block">
+        <section>
+          <header class="clearfix">
+            <h1>
+              <a href="http://vesti.bg" target="_blank">Новини</a>
+            </h1>
+            <a class="siteLink" href="http://vesti.bg" target="_blank">Vesti.bg</a><a class="lastNews" href="http://www.vesti.bg/posledni-novini" target="_blank">Последни новини</a>
+            <div class="targetholder small">&nbsp;</div>
+          </header>
+          <script type="text/javascript">
+            var newsImages = [
+            
+            'https://img.abv.bg/home/v02ee49c5398af565ca862a854581f107.jpg', 
+            
+            'https://img.abv.bg/home/v54132fa4c024352fb3ee87ff00b24928.jpg', 
+            
+            'https://img.abv.bg/home/ve40a37158a502b0af97271db1e1a5ff9.jpg', 
+            
+            'https://img.abv.bg/home/vf85d2ad738b32e4e6ad931def50942f7.jpg', 
+            
+            'https://img.abv.bg/home/vff9bafa99fe70063c58263d83985000e.jpg', 
+            
+            'https://img.abv.bg/home/v0dc0b20c27bb256f9ca8ef5a17f01ba5.jpg', 
+            
+            'https://img.abv.bg/home/v25bed6c1228b4bed02e25945dc54ce98.jpg' 
+            
+            ]
+          </script>
+          <div id="newsHolder">
+            <div id="newsImageHolder">
+              <a target="_blank" href="https://www.vesti.bg/lyubopitno/praznik-e-imen-den-imat-6110902">
+                <div class="image" style="background:url('https://img.abv.bg/home/v02ee49c5398af565ca862a854581f107.jpg') no-repeat top left;">&nbsp;
+                </div>
+              </a>
+            </div>
+            <div class="newsLinks">
+              <a target="_blank" href="https://www.vesti.bg/lyubopitno/praznik-e-imen-den-imat-6110902" data-id="6110902" class="selected">Празник е! Имен ден имат...</a><a target="_blank" href="https://www.vesti.bg/sviat/novo-ubijstvo-na-chernokozh-v-sasht-podpali-atlanta-6110904" data-id="6110904">Ново убийство на чернокож в САЩ подпали Атланта</a><a target="_blank" href="https://www.vesti.bg/temi-v-razvitie/tema-koronavirus/7-profesii-koito-se-poiaviha-zaradi-koronavirusa-6110745" data-id="6110745">7 професии, които се появиха заради коронавируса</a><a target="_blank" href="https://www.vesti.bg/temi-v-razvitie/tema-koronavirus/75-sa-novite-sluchai-na-koronavirus-6110901" data-id="6110901">75 са новите случаи на коронавирус</a><a target="_blank" href="https://www.vesti.bg/plateni-publikacii/tazi-bylgarska-bilka-podobriava-myzhkata-sila-6110837" data-id="6110837" title="Платена публикация">Тази българска билка подобрява мъжката сила
+               &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a><a target="_blank" href="https://www.vesti.bg/plateni-publikacii/trima-sa-finalistite-na-iab-mixx-awards-europe-2020-6110801" data-id="6110801" title="Платена публикация">Трима са финалистите на IAB MIXX Awards EUROPE 2020
+                 &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a><a target="_blank" href="https://www.vesti.bg/plateni-publikacii/kesh-kredit-pyrvata-nebankova-instituciia-koiato-vyvezhda-uslugata-cash-back-za-loialni-klienti-6110750" data-id="6110750" title="Платена публикация">Кеш Кредит – първата небанкова институция, която въвежда услугата Cash Back за лоялни клиенти
+                   &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a>
+                 </div>
+               </div>
+             </section>
+           </div>
+           <div id="4" class="block">
+            <script type="text/javascript">
+              var funList = [
+              {text: "Искали да кръстят софийското летище на Кристо, но само залата за излитащи. За кацащите ще си е &quot;Враждебна&quot;.  ", type:"vic", title:"Виц на деня"},
+              {text: "				&amp;nbsp;- Докторе, порязах си ръката, с какво да я намажа? - О-о-о, трябва да се отреже - казал лекарят. Пациентът побягнал към друг лекар и му се оплакал: - Докторе, порязах си ръката, отидох при Ваш колега, а той поиска да ми я реже. - Как ще я реже! Ето ти едни хапчета, пий ги, тя сама ще падне - рекъл лекарят.			  ", type:"vic", title:"Популярен"},
+              {text: "Красивите българки, които станаха на 30 г.", img: "https://img.abv.bg/home/vbdfd29cb568bf67d5753c32735ff60e68.jpg",url:"https://www.vbox7.com/article:62c2573dd5",type:"movie"},{text: "Миризливият плод, който отблъсква с аромат, но струва много", img: "https://img.abv.bg/home/vb842954a59e6d8fa8761ccd2b7133903a.jpg",url:"https://www.vbox7.com/article:73f20d5b26",type:"movie"},{text: "Нищо по-красиво от България: Владо Карамазов преоткрива Родопите, откри чудни красоти", img: "https://img.abv.bg/home/vb1c56ff5bf8d97d8b6704d1dcb75dcc1b.jpg",url:"https://www.vbox7.com/article:ac8bcfd1db",type:"movie"},{text: "Жената, която преобръща монархията, а един крал абдикира в името на любовта", img: "https://img.abv.bg/home/vb436897d1a2e85b52277e0c587f71d796.jpg",url:"https://www.vbox7.com/article:82dc9d78b0",type:"movie"}
+              ];  
+            </script>
+            <section>
+              <header class="clearfix noborder">
+                <h1>
+                  <a id="funHeadLink" href="http://vbox7.com" target="_blank">Забавно</a>
+                </h1>
+                <a id="funLink" class="siteLink" href="http://vbox7.com" target="_blank">Vbox7.com</a>
+                <div class="targetholder medium">&nbsp;</div>
+              </header>
+              <div class="slideShow" id="funShow">&nbsp;</div>
+              <div class="controls" id="funControls">
+                <a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">6</a>
+              </div>
+              <div class="DirectionsControl">
+                <button class="prev">&nbsp;</button><button class="next">&nbsp;</button>
+              </div>
+            </section>
+          </div>
+          <div id="3" class="block">
+            <section>
+              <header class="clearfix">
+                <h1>
+                  <a href="http://www.edna.bg" target="_blank">За жените</a>
+                </h1>
+                <a class="siteLink" href="http://www.edna.bg" target="_blank">Edna.bg</a>
+                <div class="targetholder medium">&nbsp;</div>
+              </header>
+              <script type="text/javascript">
+                var ednaImages = [
+                
+                'https://img.abv.bg/home/e0420220f6090207c9bba1ad33f7e45ed.jpg', 
+                
+                'https://img.abv.bg/home/eb004598e1c4690e24bc55185da611c72.jpg', 
+                
+                'https://img.abv.bg/home/e9703dde8ca20c1e51bce03130d9a766b.jpg', 
+                
+                'https://img.abv.bg/home/e713b3ef1391d67ba9d1232a1289967d4.jpg', 
+                
+                'https://img.abv.bg/home/ee0289bdf5ce20fe9e8803664b711f0f8.jpg', 
+                
+                'https://img.abv.bg/home/eda5e2742f85e4bbc922fb4520c62b2ce.jpg', 
+                
+                'https://img.abv.bg/home/e874744e4af2ccea948af8f82c0b7f1e1.jpg', 
+                
+                'https://img.abv.bg/home/ed662e4adab26c2fdda1909ba0ea56b73.jpg', 
+                
+                'https://img.abv.bg/home/ead967723f6c02234f569bd8812635f93.jpg', 
+                
+                'https://img.abv.bg/home/e63504326acfeb0c268976c2b79d48e8c.jpg' 
+                
+                ]
+              </script>
+              <div id="ednaHolder">
+                <div id="ednaImageHolder">
+                  <a target="_blank" href="https://www.edna.bg/kolonkata-na/prouchvane-dokaza-100-ot-zhenite-ne-ponasiat-myzhete-im-da-si-pochivat-4659244">
+                    <div class="image" style="background:url('https://img.abv.bg/home/e0420220f6090207c9bba1ad33f7e45ed.jpg') no-repeat top left;">&nbsp;
+                    </div>
+                  </a>
+                </div>
+                <div class="ednaLinks">
+                  <a target="_blank" href="https://www.edna.bg/kolonkata-na/prouchvane-dokaza-100-ot-zhenite-ne-ponasiat-myzhete-im-da-si-pochivat-4659244" class="selected">Проучване доказа: 100% от жените не понасят мъжете им да си почиват</a><a target="_blank" href="https://www.edna.bg/zdravoslovno/6-tajni-za-prigotvianeto-na-vkusni-tikvichki-4661704">6 тайни за приготвянето на вкусни тиквички</a><a target="_blank" href="https://www.edna.bg/svobodno-vreme/pyrvata-bylgarska-influensyrka-istoriiata-na-misterioznata-avantiuristka-liuba-kutincheva-4661881">Първата българска инфлуенсърка - историята на мистериозната авантюристка Люба Кутинчева</a><a target="_blank" href="https://www.edna.bg/zdravoslovno/malki-ezhednevni-navici-s-ogromni-polzi-za-zdraveto-4659733">Малки ежедневни навици с огромни ползи за здравето</a><a target="_blank" href="https://www.edna.bg/astrologia/dneven-horoskop-za-nedelia-14-iuni-4661899">Дневен хороскоп за неделя, 14 юни</a><a target="_blank" href="https://www.edna.bg/svobodno-vreme/horhe-luis-borhes-s-vremeto-chovek-nauchava-che-ako-e-prekalena-dori-toplinata-ot-slynceto-izgaria-4657891">Хорхе Луис Борхес: &quot;С времето човек научава, че ако е прекалена, дори топлината от слънцето изгаря...&quot;</a><a target="_blank" href="https://www.edna.bg/zdravoslovno/5-nachina-da-bydem-po-pozitivni-4658905">5 начина да бъдем по-позитивни</a><a target="_blank" href="https://www.edna.bg/astrologia/drevniiat-horoskop-na-atlantite-kojto-razkriva-lichnostta-ni-4648215">Древният хороскоп на атлантите, който разкрива личността ни</a><a target="_blank" href="https://www.edna.bg/zdravoslovno/kak-mekicite-da-ne-stanat-mazni-6-hitri-kulinarni-trika-4661886">Как мекиците да не станат мазни? 6 хитри кулинарни трика</a><a target="_blank" href="https://www.edna.bg/svobodno-vreme/edna-pritcha-koiato-vsiaka-zhena-triabva-da-prochete-i-zapomni-4658095">Една притча, която всяка жена трябва да прочете и запомни!</a>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div id="7" class="block">
+            <section>
+              <header class="clearfix">
+                <h1>
+                  <a href="http://pariteni.bg" target="_blank">Бизнес</a>
+                </h1>
+                <a class="siteLink" href="http://pariteni.bg" target="_blank">Pariteni.bg</a>
+                <div class="targetholder pari"> </div>
+              </header>
+              <div id="pariteniContent">
+                <div id="pariteniLinks">
+                  <a target="_blank" href="//www.pariteni.bg/novini/pensionirane/s-kolko-se-vdigna-srednata-pensiia-u-nas-za-poslednite-8-godini-235373">С колко се вдигна средната пенсия у нас за последните 8 години </a>
+                  <br class="clear"/>
+                  <a target="_blank" href="//www.pariteni.bg/novini/ljubopitno/sofiia-stava-vse-po-evtina-za-zhivot-235392">София става все по-евтина за живот</a>
+                  <br class="clear"/>
+                  <a target="_blank" href="//www.pariteni.bg/novini/pensionirane/53-000-bylgari-smenili-pensionniia-si-fond-235369">53 000 българи сменили пенсионния си фонд </a>
+                  <br class="clear"/>
+                  <a target="_blank" href="//www.pariteni.bg/novini/rabota/koj-kolko-raboti-v-evropa-235371">Кой колко работи в Европа</a>
+                  <br class="clear"/>
+                </div>
+                <div id="currency">
+                  <div class="toprow">
+                    <a target="_blank" href="http://www.pariteni.bg/?tid=20&amp;oid=260">Валутни курсове</a> <time>- 14.06.2020</time>
+                  </div>
+                  <div class="table">
+                    <div class="captions">
+                      <div class="first">Валута</div>
+                      <div>Лева</div>
+                      <div class="last">За 1 лев</div>
+                    </div>
+                    <div class="currencyrow">
+                      <div class="first">USD</div>
+                      <div class="up">
+                        <u>1.73021</u>
+                      </div>
+                      <div class="last">
+                        <u>0.577965</u>
+                      </div>
+                      <div class="first">EUR</div>
+                      <div>
+                        <u>1.95583</u>
+                      </div>
+                      <div class="last">
+                        <u>0.511292</u>
+                      </div>
+                      <div class="first">CHF</div>
+                      <div>
+                        <u>1.82839</u>
+                      </div>
+                      <div class="last">
+                        <u>0.546929</u>
+                      </div>
+                      <div class="first">GBP</div>
+                      <div class="up">
+                        <u>2.18156</u>
+                      </div>
+                      <div class="last">
+                        <u>0.458388</u>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </div>
+        <div class="column right"> 
+          <div id="2" class="block">
+            <style>
+              .sportLinks a {height: 24px;}
+            </style>
+            <section>
+              <header class="clearfix">
+                <h1>
+                  <a href="http://gong.bg" target="_blank">Спорт</a>
+                </h1>
+                <a class="siteLink" href="http://gong.bg" target="_blank">Gong.bg</a><a class="lastNews" href="http://gong.bg/chronology" target="_blank">Последни новини</a>
+                <div class="targetholder small">&nbsp;</div>
+              </header>
+              <script type="text/javascript">
+                var sportImages = [
+                
+                'https://img.abv.bg/home/sb867aab69b2452b14205a0e6bcba1c40.jpg', 
+                
+                'https://img.abv.bg/home/s0118d9ab3ee0f00974c69add9d28f12b.jpg', 
+                
+                'https://img.abv.bg/home/sa6f55d5e9fee6e24e6fb4dfe0f3ed62c.jpg', 
+                
+                'https://img.abv.bg/home/sa54eaa32db1e42fc6a545402927c560a.jpg', 
+                
+                'https://img.abv.bg/home/s4252c83e6fb49e4a4a4e6b1e4fa32a5d.jpg', 
+                
+                'https://img.abv.bg/home/s5f92bc6aff3b2e49f029903b33b7ddf1.jpg', 
+                
+                'https://img.abv.bg/home/sc7fa420538e068a5a606859d8c788aa2.jpg' 
+                
+                ]
+              </script>
+              <div id="sportHolder">
+                <div id="sportImageHolder">
+                  <a target="_blank" href="https://gong.bg/tenis/maje/multimedia/video/parad-na-greshkite-provali-grigor-vyv-vtoriia-mu-mach-592971">
+                    <div class="image" style="background:url('https://img.abv.bg/home/sb867aab69b2452b14205a0e6bcba1c40.jpg') no-repeat top left;">&nbsp;
+                    </div>
+                  </a>
+                </div>
+                <div class="sportLinks">
+                  <a target="_blank" href="https://gong.bg/tenis/maje/multimedia/video/parad-na-greshkite-provali-grigor-vyv-vtoriia-mu-mach-592971" class="selected">Парад на грешките провали Григор във втория му мач</a><a target="_blank" href="https://gong.bg/oshte-sport/drugi-sportove/multimedia/gallery/yellow/ubijstven-model-syblazniava-sys-seksapil-593014">Убийствен модел съблазнява със сексапил</a><a target="_blank" href="https://gong.bg/motorni/formula-1/multimedia/gallery/yellow/bivshata-na-alonso-e-prosto-perfektna-593028">Бившата на Алонсо е просто перфектна</a><a target="_blank" href="https://gong.bg/oshte-sport/drugi-sportove/multimedia/gallery/yellow/obrat-raziuzdenata-lana-se-vyrna-pri-rusev-593010">Обрат: Разюздената Лана се върна при Русев</a><a target="_blank" href="https://gong.bg/oshte-sport/drugi-sportove/poshtenska-banka-s-novo-garancionno-sporazumenie-za-kreditirane-na-malyk-i-sreden-biznes-589796" title="Платена публикация">Пощенска банка с ново гаранционно споразумение за кредитиране на малък и среден бизнес
+                   &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a><a target="_blank" href="https://gong.bg/oshte-sport/drugi-sportove/razlichnoto-v-choveshkoto-i-choveshkoto-v-izkustvoto-587140" title="Платена публикация">Различното в човешкото и човешкото в изкуството
+                     &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a><a target="_blank" href="https://gong.bg/bg-football/potencialnite-shampioni-vyv-vodeshtite-evropejski-pyrvenstva-i-kyde-sa-iznenadite-583850" title="Платена публикация">Потенциалните шампиони във водещите Европейски първенства и къде са изненадите
+                       &nbsp;<img src="https://img.abv.bg/AbvProductAds/pp_icon.gif" alt="Платена публикация" style="border:none"></a>
+                     </div>
+                   </div>
+                 </section>
+               </div>
+               <div id="6" class="block">
+                <div id="sinoptik">
+                  <section>
+                    <header class="clearfix">
+                      <h1>
+                        <a href="http://sinoptik.bg" target="_blank">Времето</a>
+                      </h1>
+                      <a class="siteLink" href="http://sinoptik.bg" target="_blank">Sinoptik.bg</a>
+                      <div class="targetholder medium"> </div>
+                    </header>
+                    <div id="sinoptikContent">
+                      <div class="info">
+                        <div id="currentCity" class="left"> </div>
+                        <a target="_blank" class="right">10-дневна прогноза</a>
+                      </div>
+                      <div class="infoMore">
+                        <ul>
+                          <li id="w100727011">София</li>
+                          <li id="w100732770">Бургас</li>
+                          <li id="w100733722">Ахтопол</li>
+                          <li id="w307000006">Черни връх</li>
+                          <li id="w100728193">Пловдив</li>
+                          <li id="w100727523">Русе</li>
+                          <li id="w100727329">Шабла</li>
+                          <li id="w305021306">Мусала</li>
+                          <li id="w100726050">Варна</li>
+                          <li id="w100728203">Плевен</li>
+                          <li id="w100727447">Сандански</li>
+                          <li id="w100733055">Боровец</li>
+                        </ul>
+                        <div id="citySearch">
+                          <div id="lHolder"> </div>
+                          <input title="Избери град от Европа, Америка..." class="text defaultValue" type="text"/>
+                          <div class="searchButton"> </div>
+                        </div>
+                        <div id="searchResults">
+                          <span class="caption"> </span>
+                          <br/>
+                        </div>
+                        <br class="clear"/>
+                      </div>
+                      <div class="clearfix" id="sinoptikLinkHolder"><a id="sinoptikLink" target="_blank"></a><a id="sinoptikLinkToday" target="_blank"></a><a id="sinoptikLinkTomorrow" target="_blank"></a>
+                        <div id="sLoader"> </div>
+                      </div>
+                      <div class="infocell first">
+                        <span class="time">В момента</span>
+                        <div class="image" style="background-repeat: no-repeat; background-position: 50% 50%;"> </div>
+                        <div class="digits">
+                          <div class="gradus">
+                            <span> </span>
+                          </div>
+                          <div class="smallgradus">Усеща се: <span> </span>
+                          </div>
+                          <div class="forecast"> </div>
+                        </div>
+                      </div>
+                      <div class="infocell">
+                        <span class="time">Днес</span>
+                        <div class="image" style="background-repeat: no-repeat; background-position: 50% 50%;"> </div>
+                        <div class="digits">
+                          <div class="smallgradus">
+                            <span class="grey"> </span> <strong>|</strong> <span> </span>
+                          </div>
+                          <div class="forecast"> </div>
+                        </div>
+                      </div>
+                      <div class="infocell last">
+                        <span class="time">Утре</span>
+                        <div class="image" style="background-repeat: no-repeat; background-position: 50% 50%;"> </div>
+                        <div class="digits">
+                          <div class="smallgradus">
+                            <span class="grey"> </span> <strong>|</strong> <span> </span>
+                          </div>
+                          <div class="forecast"> </div>
+                        </div>
+                      </div>
+                      <span class="clear"> </span>
+                    </div>
+                    <script type="text/javascript">
+                      $(function(){getCityInfo();});            
+                    </script>
+                  </section>
+                </div>
+              </div>
+              <div class="block" id="5"> 
+                <section>
+                  <header class="clearfix">
+                    <h1><span>Дата / Час</span></h1>
+                    <div class="targetholder large">&nbsp;</div>
+                  </header>
+                  <div id="dateTime">
+                    <div id="clock"><canvas id="clockCanvas" width="112" height="112"></canvas></div>
+                    <div id="dayInfo">
+                      <span id="dayContainer"></span>
+                      <div class="day"><span id="dateContainer"></span></div>
+                      <div class="monthyear"><span id="monthContainer"></span><br /><span id="yearContainer"></span></div>
+                    </div>
+                    <div id="calendar">
+                      <div id="dayrow">
+                        <div class="cell">П</div>
+                        <div class="cell">В</div>
+                        <div class="cell">С</div>
+                        <div class="cell">Ч</div>
+                        <div class="cell">П</div>
+                        <div class="cell weekend">С</div>
+                        <div class="cell last weekend">Н</div>
+                      </div>
+                      <span class="clear">&nbsp;</span>
+                      <div id="days"></div>
+                    </div>
+                  </div>
+                </section>
+                <script type="text/javascript">
+                  var months = ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'];
+                  var days = ['Неделя', 'Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота'];
+                  var cDate = new Date(currentTime);
+                  
+                  $("#yearContainer").html(cDate.getFullYear());
+                  $("#dayContainer").html(days[cDate.getDay()]);
+                  $("#monthContainer").html(months[cDate.getMonth()]);
+                  $("#dateContainer").html(cDate.getDate());
+                  $("#days").html(initCal({         
+                    dayElement: "div",
+                    dayClass: "cell",
+                    todayClass: "cday",
+                    weekendClass: "weekend"
+                  }));
+                  
+                  drawClock();   
+                </script>  
+              </div> 
+              <div id="8" class="block">
+                <div id="astro">
+                  <section>
+                    <header class="clearfix">
+                      <h1>
+                        <a href="http://edna.bg/horoskopi" target="_blank">Хороскопи</a>
+                      </h1>
+                      <a class="siteLink" href="http://edna.bg/horoskopi" target="_blank">Edna.bg/horoskopi</a>
+                      <div class="targetholder astro"> </div>
+                    </header>
+                    <div id="astroContent">
+                      <div class="info">
+                        <div class="left">
+                          <div>Близнаци</div> <span>(<span class="startDate">22.05</span>-<span class="endDate">21.06</span>)</span>
+                        </div>
+                        <a class="right" target="_blank" href="https://www.edna.bg/horoskopi/bliznaci/mesechen">Месечен</a>
+                      </div>
+                      <div style="display: none;" class="infoMore">
+                        <ul>
+                          <li id="z1">Овен</li>
+                          <li id="z4">Рак</li>
+                          <li id="z7">Везни</li>
+                          <li id="z10">Козирог</li>
+                          <li id="z2">Телец</li>
+                          <li id="z5">Лъв</li>
+                          <li id="z8">Скорпион</li>
+                          <li id="z11">Водолей</li>
+                          <li id="z3" class="selected">Близнаци</li>
+                          <li id="z6">Дева</li>
+                          <li id="z9">Стрелец</li>
+                          <li id="z12">Риби</li>
+                        </ul>
+                      </div>
+                      <div id="infoHolder"><a class="image" target="_blank" href="https://www.edna.bg/horoskopi/bliznaci/dneven" style="background-repeat:no-repeat;background-position: 50% 50%;background-image:url('https://img.abv.bg/homepage/astro/3.png');"></a><p>Днес не влизайте в спор, ако усетите, че човекът срещу вас е агресивен, тъй като може да си навлечете големи главоболия. Избягвайте всякакви рискови и опасни ситуации – сега не е моментът да си играете със съдбата и да се надявате, че ще ви се размине. Ако се чувствате напрегнати или се отключи здравословен проблем, помислете дали в себе си не таите нещо, което ви измъчва.</p>
+                      </div>
+                      <span class="clear"> </span>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+            </div>
+            <br class="clear" />
+          </div>
+          
+        </div> 
+        
+        <!--\SITE CONTENT-->
+        <!--FOOTER--> 
+        
+        <footer>
+          <div id="footerInner">
+            <ul>
+              <li>
+                <span>Да организирам</span>
+                <p>
+                  <a target="_blank" href="https://www.abv.bg">АБВ Поща</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://ndox.abv.bg">DOX</a><br />
+                  <a target="_blank" href="http://apps.abv.bg">АБВ на твой домейн</a>
+                </p>
+              </li>
+              <li>
+                <span>Да намирам</span>
+                <p>
+                  <a target="_blank" href="https://www.gbg.bg">Гювеч</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://www.carmarket.bg">Автомобили</a><br />
+                  <a target="_blank" href="https://opoznai.bg/">Опознай.bg</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://grabo.bg/">Grabo.bg</a><br />
+                </p>
+              </li>
+              <li>
+                <span>Да се информирам</span>
+                <p>
+                  <a target="_blank" href="https://www.vesti.bg">Новини</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://gong.bg">Спорт</a><br />
+                  <a target="_blank" href="https://www.pariteni.bg">Пари</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://www.sinoptik.bg">Времето</a><br />
+                  <a target="_blank" href="https://www.edna.bg">За жените</a>
+                </p>
+              </li>
+              <li>
+                <span>Да се забавлявам</span>
+                <p>            
+                  <a target="_blank" href="https://www.vbox7.com">Видео</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://www.vgames.bg">Игри</a><br />
+                  <a target="_blank" href="https://www.vmusic.bg">Музика</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="https://www.vcards.bg">Картички</a>
+                </p>
+              </li>
+            </ul>
+            <div class="separator"></div>
+            <div class="corpLinks">
+              <a target="_blank" href="http://www.netinfocompany.bg/media-kit/abvbg-69">За реклама</a>
+              &nbsp;|&nbsp;
+              <a target="_blank" href="http://www.adwise.bg/">Adwise реклама</a>
+              &nbsp;|&nbsp;
+              <a target="_blank" href="http://www.netinfocompany.bg/about-company">За нас</a>
+              &nbsp;|&nbsp;
+              <a target="_blank" href="http://www.netinfocompany.bg/portfolio">Портфолио</a>
+              <br />
+              <a target="_blank" href="https://passport.abv.bg/app/profiles/sendtosupport/form?product=abv.bg&subject=2">Пишете ни</a>
+              &nbsp;|&nbsp;
+              <a target="_blank" href="https://help.abv.bg">Помощ</a>
+              &nbsp;|&nbsp;
+              <a target="_blank" href="https://blog.abv.bg/">Блог</a>
+              &nbsp;|&nbsp;
+              <a href="http://mobile.abv.bg/" target="_blank">Мобилни приложения</a>
+              <br />
+              <a target="_blank" href="https://passport.abv.bg/app/profiles/resources/terms/terms.html">Общи условия</a>
+              &nbsp;|&nbsp;
+              <a href="https://passport.abv.bg/app/profiles/resources/terms/policy.html" target="_blank">Поверителност</a>
+              &nbsp;|&nbsp;
+              <a href="https://www.netinfocompany.bg/gdpr/" target="_blank">GDPR инфо</a>
+              <br /><br />
+              
+              <p>© 1999-2020 Нет Инфо АД <a target="_blank" href="http://www.netinfocompany.bg/privacy">Всички права запазени.</a></p>
+            </div>
+            <br class="clear" />
+          </div>
+          <!-- logos in footer begin -->
+          <div class="footer_logos">
+            <a href="http://www.netinfocompany.bg/" target="_blank">
+              <img src="//m.netinfo.bg/temp/new_logos_NetInfo_MTG/netinfo_logo_new_footer.png" class="netinfoLogo" />
+            </a>
+            <br class="clear" />
+          </div>
+          <!-- logos in footer end -->    
+        </footer>
+        <img id="countPx" src="//img.abv.bg/i/n/p.gif" style="display: none;" width="1" height="1" />
+        <!--\FOOTER--> 
+      </div>
+      <!--\WRAPPER-->
+
+      <!-- Grabo and Sravni blocks, SAS banners -->
+      <script type="text/javascript" src="//img.abv.bg/e/s/abv_4.js?v=1592121350745"></script>
+      <!-- /Grabo and Sravni blocks, SAS banners -->
+      <!-- abv formats - skin, wallpaper -->
+      <script type="text/javascript" src="//img.abv.bg/e/s/msgHTML5.js?v=1592121350745"></script>
+      <!-- /abv formats - skin, wallpaper -->
+      <!-- Google Tag Manager Iframe -->
+      <script type="text/javascript" src="//img.abv.bg/e/s/gtm.js?v=1592121350745"></script>
+      <!-- /Google Tag Manager Iframe --> 
+      <!-- Gemius SA Iframe -->
+      <script type="text/javascript" src="//img.abv.bg/e/s/gemius.js?v=1592121350745"></script>
+      <!-- /Gemius SA Iframe --> 
+      <!-- GDPR -->
+      <script type="text/javascript" src="https://img.abv.bg/e/s/GDPR_new.js?v=1592121350745"></script>
+      <!-- /GDPR -->
+
+
+    </body>
+    </html>
