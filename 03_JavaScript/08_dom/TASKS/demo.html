@@ -428,9 +428,7 @@
                       </div>
                       <span class="clear"> </span>
                     </div>
-                    <script type="text/javascript">
-                      $(function(){getCityInfo();});            
-                    </script>
+                    
                   </section>
                 </div>
               </div>
@@ -462,24 +460,7 @@
                     </div>
                   </div>
                 </section>
-                <script type="text/javascript">
-                  var months = ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'];
-                  var days = ['Неделя', 'Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота'];
-                  var cDate = new Date(currentTime);
-                  
-                  $("#yearContainer").html(cDate.getFullYear());
-                  $("#dayContainer").html(days[cDate.getDay()]);
-                  $("#monthContainer").html(months[cDate.getMonth()]);
-                  $("#dateContainer").html(cDate.getDate());
-                  $("#days").html(initCal({         
-                    dayElement: "div",
-                    dayClass: "cell",
-                    todayClass: "cday",
-                    weekendClass: "weekend"
-                  }));
-                  
-                  drawClock();   
-                </script>  
+                
               </div> 
               <div id="8" class="block">
                 <div id="astro">
