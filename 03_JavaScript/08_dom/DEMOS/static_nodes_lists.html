@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+	<body>
+		<div id="parent">
+			<div>Child Divs</div>
+			<div>Child Divs</div>
+			<div>Child Divs</div>
+			<div>Child Divs</div>
+		</div>		
+	</body>
+	<script>
+		let parent = document.getElementById('parent'),
+		// let parent = document.querySelector('#parent'),	
+		//this creates a static nodes list	
+		divsChildren = parent.querySelectorAll('div');
+		
+		console.log(divsChildren.length)
+		parent.appendChild(document.createElement('div'));
+		console.log(divsChildren.length)
+		
+
+	</script>
+</html>
