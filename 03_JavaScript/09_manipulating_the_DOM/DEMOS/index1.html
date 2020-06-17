@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div p p a {
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			
+		</p>
+	</div>
+	<div>
+		<p>
+			<h3>Text</h3>
+			<p>
+				<a href="">Link</a>
+			</p>
+		</p>
+	</div>
+	<div>
+		<p>
+			<h3>Text</h3>
+		</p>
+	</div>
+	<script type="text/javascript">
+		let pElement = document.querySelector('div p');
+		console.log(pElement.parentNode)
+		let divElement = document.querySelector('div:nth-of-type(2)');
+		console.log(divElement.childNodes)
+		console.log(divElement.previousSibling)
+		console.log(divElement.previousElementSibling)
+		
+	</script>
+</body>
+</html>

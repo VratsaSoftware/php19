@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div p p a {
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		Text div
+		<p>
+			Text
+		</p>
+	</div>
+	<div>
+		<p>
+			<h3>Text</h3>
+			<p>
+				<a href="">Link</a>
+			</p>
+		</p>
+	</div>
+	<div>
+		<p>
+			<h3>Text</h3>
+		</p>
+	</div>
+	<script type="text/javascript">
+		var studentsList = document.createElement("ul");
+
+		var studentLi = document.createElement("li");	
+		studentsList.appendChild(studentLi);
+		  
+		studentsList.appendChild(document.createElement("li"));
+		
+		var headerEl = document.getElementsByTagName('div');
+		console.log(headerEl);
+		headerEl[0].appendChild(studentsList);
+		// document.body.appendChild(studentsList);
+
+		// console.log(studentsList)
+		// console.log(studentLi)
+		headerEl[0].style.color = "#2AFC08";
+		headerEl[0].style.backgroundColor = "#086CF4";//background-color
+		for( let i in headerEl ){
+			headerEl[i].style.color = "#FA7B0A";
+		}
+	</script>
+</body>
+</html>
