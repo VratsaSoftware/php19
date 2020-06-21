@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+</head>
+<body>
+	<input type="text" name="email">
+	<div></div>
+	<button>Validate</button>
+	<script type="text/javascript">
+		let btn = document.getElementsByTagName('button')[0];
+		btn.addEventListener('click', validateEmail, false);
+
+		function validateEmail(){
+			let emailInput = document.getElementsByTagName('input')[0], 
+				textEl = document.getElementsByTagName('div')[0], 
+				bkgr = '#F90505', email, emailArr;
+			email = emailInput.value;
+			textEl.textContent = email;
+			emailArr = email.split('@');
+			if( emailArr.length == 2 ){
+				let domain = emailArr[1].split('.');
+				if( domain.length == 2 ){
+					bkgr = '#06FA06';
+				}
+			}
+			textEl.style.backgroundColor = bkgr;
+		}
+	</script>
+</body>
+</html>

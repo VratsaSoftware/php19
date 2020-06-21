@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<img src="4.jpg" alt="">
+	</div>
+	<button>Click me!</button>
+	<script type="text/javascript">
+		let btn = document.getElementsByTagName('button')[0];		
+		btn.onclick = function(){
+			let imgEl = document.getElementsByTagName('img')[0];
+			console.log( imgEl.getAttribute('src'))
+			console.log( imgEl.src)
+			if( imgEl.getAttribute('src') == '4.jpg'){
+				imgEl.setAttribute('src', '5.jpg')
+			}else if( imgEl.getAttribute('src') == '5.jpg'){
+				imgEl.setAttribute('src', '4.jpg')
+			}
+		}
+		
+	</script>
+</body>
+</html>

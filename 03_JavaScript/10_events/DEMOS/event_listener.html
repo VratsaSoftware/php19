@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>Click Me!</button>
+	<script type="text/javascript">
+		let btn = document.getElementsByTagName('button')[0];
+		// 
+		btn.addEventListener('click', onButtonClick, false);
+
+		function onButtonClick(){
+			console.log('The Button is clicked!')
+		}
+	</script>
+</body>
+</html>
