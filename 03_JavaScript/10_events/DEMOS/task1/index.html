@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<img onmouseover="replaceImgSrc()" onmouseout="recoverImgSrc()" src="4.jpg" alt="">
+	</div>
+	<script type="text/javascript">
+		function replaceImgSrc(){
+			let imgEl = document.getElementsByTagName('img');
+			imgEl[0].setAttribute("src", "5.jpg")
+		}
+		function recoverImgSrc(){
+			document.getElementsByTagName('img')[0].setAttribute('src', '4.jpg');
+		}
+	</script>
+</body>
+</html>
