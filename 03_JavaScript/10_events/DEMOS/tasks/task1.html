@@ -10,14 +10,20 @@
 	<button>Validate</button>
 	<script type="text/javascript">
 		let btn = document.getElementsByTagName('button')[0];
+		console.log(btn);
+
 		btn.addEventListener('click', validateEmail, false);
 
 		function validateEmail(){
+			console.log(1)
 			let emailInput = document.getElementsByTagName('input')[0], 
 				textEl = document.getElementsByTagName('div')[0], 
 				bkgr = '#F90505', email, emailArr;
 			email = emailInput.value;
+
 			textEl.textContent = email;
+			// textEl.textContent = 'new content';
+			console.log( textEl.textContent )
 			emailArr = email.split('@');
 			if( emailArr.length == 2 ){
 				let domain = emailArr[1].split('.');
@@ -25,7 +31,7 @@
 					bkgr = '#06FA06';
 				}
 			}
-			textEl.style.backgroundColor = bkgr;
+			textEl.style.backgroundColor = bkgr;//background-color
 		}
 	</script>
 </body>

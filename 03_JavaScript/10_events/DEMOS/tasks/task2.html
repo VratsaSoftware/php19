@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<style type="text/css">
+		button {
+			background-color: #7D03F9;
+			color: #FFF
+		}
+	</style>
+</head>
+<body>
+	<button onmouseenter="mouseIsEntering()" onmouseleave="mouseIsLeaving()"><span>Like</span></button>
+	<script type="text/javascript">
+		let btn = document.getElementsByTagName('button')[0];
+		function mouseIsEntering(){
+			console.log('entering');
+			// innerHTML
+			// innerText
+			console.log(btn.innerHTML)
+			console.log(btn.innerText)
+			console.log(btn.textContent)
+			btn.textContent = 'unLike';
+			btn.style.backgroundColor = '#F8EF05';
+		}
+		function mouseIsLeaving(){
+			console.log('mouse is leaving');
+			btn.textContent = 'Like';
+			btn.style.backgroundColor = '#7D03F9';
+		}
+	</script>
+</body>
+</html>

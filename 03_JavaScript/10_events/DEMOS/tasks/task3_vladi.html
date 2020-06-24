@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <form>
+            <input type="checkbox" id="checkbox" onclick="myEvent()">
+            <input type="text" class="hideShow" style="display: none;"/> 
+        </form> 
+        <script>
+            // document.getElementById("checkbox").addEventListener("click", myEvent);
+            function myEvent() {
+                let hideShow = document.getElementsByClassName("hideShow")
+                
+                if (document.getElementById("checkbox").checked) {
+                    for (const element of hideShow) {
+                        element.style.display = "inherit"
+                    }
+                } else {
+                    for (const element of hideShow) {
+                        element.style.display = "none"
+                    }
+                }
+            }
+        </script>
+    </body>
+</html

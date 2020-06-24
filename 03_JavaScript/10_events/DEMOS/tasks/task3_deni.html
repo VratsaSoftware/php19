@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 2</title>
+</head>
+<body>
+	<style type="text/css">
+		.hide{
+			display: none;
+		}
+
+		.show{
+			display: inline-block;
+		}
+	</style>
+	Желаете ли фактура: <input type="checkbox" name="check">
+	<p></p>
+	<div class="hide">
+		Име на фирма:<p></p><input type="text" name="firmName"><p><p>
+		Адрес за кореспонденция: <p></p><input type="text" name="adress"><p><p>
+		Телефон: <p></p><input type="text" name="phone"><p><p>
+	</div>
+	<p></p>
+	<input type="submit" name="submit">
+
+	<script type="text/javascript">
+		let checkBox = document.getElementsByName("check")[0];
+
+		checkBox.addEventListener("click", addNewFields, false);
+
+		function addNewFields(){
+			let div = document.getElementsByTagName("div")[0];
+
+			if (div.getAttribute("class") == "hide") {
+				div.setAttribute("class", "show");
+
+				let btnSubmit = document.getElementsByName("submit")[0];
+
+				btnSubmit.addEventListener("click", checkData, false);
+
+				function checkData(){
+					let firmName = document.getElementsByName("firmName")[0].value,
+					phone = document.getElementsByName("phone")[0].value,
+					adress = document.getElementsByName("adress")[0].value;
+
+					console.log(firmName);
+					if (firmName.length > 0 && phone.length > 0 && adress.length > 0) {
+						alert("Correct data");
+					}else{
+						alert("Please fill all fields");
+					}
+				}
+			}else if (div.getAttribute("class") == "show") {
+				div.setAttribute("class", "hide");
+			}
+		}
+	</script>
+</body>
+</html>

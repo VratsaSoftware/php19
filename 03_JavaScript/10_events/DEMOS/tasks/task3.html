@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.optional-inputs {
+			display: none
+		}
+	</style>
+</head>
+<body>
+	<label>Искате ли фактура</label>
+	<input type="checkbox" name="choose">
+	<div class="optional-inputs">
+		<label class="company-name">Фирма</label>
+		<input type="text" name="company_name">
+	</div>
+	<input type="submit" name="submit">
+	<script type="text/javascript">
+		let checkboxEl = document.querySelector('[name=choose]'), 
+		submitEl = document.querySelector('[name=submit]');
+		checkboxEl.addEventListener('change', toggleOptionalInputs, false);
+		submitEl.addEventListener('click', validateForm, false);
+		function toggleOptionalInputs(){
+			if( checkboxEl.checked ){
+				console.log('checked')
+				document.getElementsByClassName('optional-inputs')[0].style.display = 'block'
+			} else {
+				document.getElementsByClassName('optional-inputs')[0].style.display = 'none'
+			}
+		}
+
+		function validateForm(){
+			let company = document.querySelector('[name=company_name]').value;
+			if( !company ){
+				let errorEl = document.createElement('p');
+				errorEl.textContent = 'The field is required';
+				errorEl.style.color = '#EA0B0B';
+				// element.parentNode.insertBefore(newElement, element);
+				let parentNode = document.querySelector('optional-inputs'),
+					element = document.querySelector('label.company-name');
+					element.parentNode.insertBefore(errorEl, element);
+			}
+		}
+		
+	</script>
+</body>
+</html>

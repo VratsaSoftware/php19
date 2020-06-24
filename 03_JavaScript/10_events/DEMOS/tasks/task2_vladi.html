@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <h1 id="element" onmouseover="mouseOver()" onmouseout="mouseOut()"> LIKE </h1>
+        <script>
+            let over = document.getElementById("element")
+            function mouseOver() {
+                over.innerHTML = "UNLIKE"
+                over.style.color = "red"
+            }
+            function mouseOut() {
+                over.innerHTML = "LIKE"
+                over.style.color = "green"
+            }
+        </script>
+    </body>
+</html>
