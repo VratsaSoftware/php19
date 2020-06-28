@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<p class="some-class" id="p-element">
+				Text 1
+			</p>
+			<p class="some-class">
+				Text 2
+			</p>
+			<p class="some-class other-class">
+				Text 3
+			</p>
+		</div>
+		<div class="wrapper">
+			<p class="some-class" id="p-element">
+				Text 1
+			</p>
+			<p class="some-class">
+				Text 2
+			</p>
+			<p class="some-class other-class">
+				Text 3
+			</p>
+		</div>
+	</div>		
+	<script type="text/javascript" src="script/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		//siblings
+		// console.log($('#p-element').next())
+		// console.log($('#p-element').next('.other-class'))
+		// console.log($('#p-element').nextAll('.other-class'))
+		//parents
+		// console.log($('#p-element').parent())
+		// console.log($('#p-element').parent('.container'))
+		// console.log($('#p-element').parents('.container'))
+		
+		//children
+		// console.log($('.container').children());
+		// console.log($('.container').children('.some-class'));
+
+		//find
+		// console.log($('.container').find('.some-class'));
+		console.log($('.container').find('div p'));
+		console.log($('.container').find('p'));
+		$('.container').find('p').remove();
+
+	</script>	
+</body>
+</html>

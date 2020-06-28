@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="form-container">
+			<p>
+				<input type="text" name=""/>
+				<a class="remove-block" href="#">Delete - <span>1</span></a>
+				<hr>
+			</p>
+		</div>
+		<a id="add-block" href="#">Add</a>
+	</div>
+	<script type="text/javascript" src="script/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		let num = 1;
+		function setNum(){	
+			let num = 1;
+			$('.remove-block span').each(function(index, el) {
+				$(el).text(num);
+				num++
+			});
+		}
+		$('#add-block').click(function(e){
+			e.preventDefault();
+			// console.log(e.target)
+			// console.log($(this))
+			let str = '<div class="form-container"><p>';
+				str += '<input type="text" name=""><a class="remove-block" href="#" />';
+				str += 'Delete - <span>'+ num +'</span></a><hr></p></div>';
+			num++;
+			$(str).insertBefore($(this));
+			setNum();
+		})
+		// $('.remove-block').click(function(e){
+		// 	e.preventDefault()
+		// 	$(this).parent().remove()
+		// });
+
+		$('.container').on('click', '.remove-block', function(e){
+			e.preventDefault();
+			$(this).parents('.form-container').remove()
+			// $(this).parent().remove()
+			setNum();
+		})
+	</script>
+</body>
+</html>

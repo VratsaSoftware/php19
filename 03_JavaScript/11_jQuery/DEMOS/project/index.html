@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p class="some-class" id="p-element">
+			Text 1
+		</p>
+		<p class="some-class">
+			Text 2
+		</p>
+	</div>		
+	<script type="text/javascript" src="script/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		// $('div')
+		//$('#p-element')
+		console.log($('.some-class'))
+		//#p-element
+		//p.some-class:nth-child(2)
+		let pElement = $('.some-class');
+		console.log(pElement.length)
+		console.log(pElement.text())
+		pElement.text('New Text');
+		pElement.each(function(index, el) {
+			// let spanElement = $('<span>');
+			$(el).text('New Text - ' );
+			let str = '<span>'+ (index + 1) +'</span>';
+			let spanElement = $(str);
+			// console.log((spanElement))
+			$(el).append(spanElement);
+			
+		});
+
+
+	</script>	
+</body>
+</html>
