@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 3</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<input type="text" id="liClass" placeholder="class name">
+	<input type="color" id="color">
+	<button id="btn">Paint</button>
+	<br><br><br><br><br>
+	<ul>
+	    <li class="bird">Hummingird</li>
+	    <li class="bird">Nightingle</li>
+	    <li>Lizard</li>
+	    <li class="cars">Audi</li>
+	    <li class="bird">Sparrow</li>
+	    <li class="cars">BMW</li>
+	</ul>
+	<script type="text/javascript">
+		let  btn = $("#btn");		
+		$(btn).on("click", function(e) {
+			e.preventDefault();			
+			let liClass = $("#liClass").val(), 
+				color = $("#color").val();	
+				
+				
+				if (liClass === "" || liClass === undefined) {
+					liClass = undefined;
+				}		
+				$("ul li").css({
+						background: color
+					});
+
+				$("ul li").each(function(ind, el) {
+				if ($(el).attr("class") === liClass) {
+					$(el).css({
+						background: color
+					});
+				}
+			});		
+		});
+	</script>
+</body>
+</html>

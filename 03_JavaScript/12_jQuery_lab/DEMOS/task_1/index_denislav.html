@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo 1</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style type="text/css">
+    	.ok{
+    		background: #0f0;
+    	}
+    	.wrong{
+    		background: #f00;
+    	}
+    </style>
+</head>
+<body>
+    <form>
+        Name: <input type="text" value="" id="fname"><br>
+        Family name:<input type="text" value="" id="lname"><br>
+        Password: <input type="text" value="" id="pass"><br>
+        Phone: <input type="text" value="" id="phone"><br>
+        <button id="submit">Submit</button>
+    </form>
+    <script type="text/javascript">
+    let btn = $("#submit");    
+    	$(btn).on('click', function(e) {
+        e.preventDefault();   
+        $('.ok').text('');     
+        $('.wrong').text('');     
+        let fName = $("#fname"),
+            fNameVal = fName.val(),
+            fNameLen = fNameVal.length;        
+            if (fNameLen >= 3 && fNameVal.match(/\w/)) {
+        		let str = "<p class='ok'>Correct data<p>";
+        		$(fName).after(str);
+        	}else{
+        		let str = "<p class='wrong'>Wrong data<p>";
+        		$(fName).after(str);
+        	}        // Last name check
+        let lName = $("#lname"),
+            lNameVal = lName.val(),
+            lNameLen = lNameVal.length;		
+            if (lNameLen >= 3 && lNameVal.match(/\w/)) {
+        		let str = "<p class='ok'>Correct data<p>";
+        		$(lName).after(str);
+        	}else{
+        		let str = "<p class='wrong'>Wrong data<p>";
+        		$(lName).after(str);
+        	}        //Password
+        let pass = $("#pass"),
+            passVal = pass.val(),
+            passLen = passVal.length;		
+            if (passLen >= 6 && passVal.match(/[A-Z]/) && passVal.match(/[a-z]/) && passVal.match(/\d/)) {
+        		let str = "<p class='ok'>Correct data<p>";
+        		$(pass).after(str);
+        	}else{
+        		let str = "<p class='wrong'>Wrong data<p>";
+        		$(pass).after(str);	
+        	}        // Phone check
+        let phone = $("#phone"),
+            phoneVal = phone.val(),
+            phoneLen = phoneVal.length;		
+            if (phoneLen >= 9 && phoneVal.match(/\d/) && phoneVal.match(/^00359/)) {
+        	let str = "<p class='ok'>Correct data</p>";
+        	$(phone).after(str);
+        }else{
+        	let str = "<p class='wrong'>Wrong data<p>";
+        	$(phone).after(str);
+        }
+    });
+    </script>
+</body></html>
