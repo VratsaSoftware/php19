@@ -24,16 +24,15 @@
 			let liClass = $("#liClass").val(), 
 				color = $("#color").val();	
 				
-				
-				if (liClass === "" || liClass === undefined) {
+				if ( liClass === "" || liClass === undefined ) {
 					liClass = undefined;
-				}		
-				$("ul li").css({
-						background: color
-					});
+				}	
 
-				$("ul li").each(function(ind, el) {
-				if ($(el).attr("class") === liClass) {
+				$("ul li").each( function(ind, el) {
+				
+				if ( $(el).attr("class") === liClass ) {
+					console.log($(el).attr("class") == liClass, liClass )
+					console.log($(el).attr("class") )
 					$(el).css({
 						background: color
 					});

@@ -70,8 +70,10 @@
 	<script type="text/javascript">
 		$('article').addClass('hidden-section');
 		
-		$('header').on('click', function(){			
+		$('header').on('click', function(){		
+
 			$('article').not('.hidden-section').addClass('hidden-section');
+			
 			$(this).siblings('article').removeClass('hidden-section');		
 		})
 	</script>	

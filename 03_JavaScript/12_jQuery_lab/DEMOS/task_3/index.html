@@ -12,7 +12,7 @@
 		<ul>
 			<li class="bird">Hummingbird</li>
 			<li class="eagle">Nightingale</li>
-			<li class="">Lizard</li>
+			<li >Lizard</li>
 			<li class="bird">Eagle</li>
 			<li class="hummingbird">Sparrow</li>
 		</ul>
@@ -28,13 +28,13 @@
 
 	<script type="text/javascript" src="script/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript">
-		$(".bird").removeClass('bird');
+		
 		$('input[type=submit]').on('click', function(e){
 			e.preventDefault();
 			console.log($('[class]'))
 			let className = $('select[name=class_name]').val(), 
 				colorCode =$('input[name=class_color]').val();
-console.log(className);
+				console.log(className);
 				$('.' + className).css('backgroundColor', colorCode);
 		})
 	</script>	

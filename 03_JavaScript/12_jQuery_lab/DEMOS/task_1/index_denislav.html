@@ -29,7 +29,7 @@
         let fName = $("#fname"),
             fNameVal = fName.val(),
             fNameLen = fNameVal.length;        
-            if (fNameLen >= 3 && fNameVal.match(/\w/)) {
+            if ( fNameLen >= 3 && fNameVal.match(/\w/) ) {
         		let str = "<p class='ok'>Correct data<p>";
         		$(fName).after(str);
         	}else{
@@ -49,7 +49,7 @@
         let pass = $("#pass"),
             passVal = pass.val(),
             passLen = passVal.length;		
-            if (passLen >= 6 && passVal.match(/[A-Z]/) && passVal.match(/[a-z]/) && passVal.match(/\d/)) {
+            if ( passLen >= 6 && passVal.match(/[A-Z]/) && passVal.match(/[a-z]/) && passVal.match(/\d/) ) {
         		let str = "<p class='ok'>Correct data<p>";
         		$(pass).after(str);
         	}else{
