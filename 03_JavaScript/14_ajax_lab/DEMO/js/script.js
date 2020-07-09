@@ -1,86 +1,87 @@
-// get 
+//GET
+
 $('#search-input').on('input', function(e){
-// $('#search-btn').on('click', function(e){
-    e.preventDefault();
-    let searchString = $('input[name=search]').val();
-    console.log(searchString)
-    
-    $.ajax({
+  let strSearch = $(this).val();
+  
+  $.ajax({
         url: './file.php',
         type: 'get',
-        data: 'search=' + searchString,
+        data: 'search=' + strSearch,
         dataType: 'json',      
         success: function( response ) {
-          // console.log( response )
-          let tBody = '';
-          $(response).each(function(index, el) {
-          	let currentProduct = '';
-          	let currentRating = convertRating( el.rating, el.product_id );
-          	tBody += '<tr><td>'+(index+1)+'</td>';
-          	tBody += '<td>'+ el.name + '</td>';
-          	tBody += '<td class="rating-td">'+ currentRating + '</td></tr>';    
+          let products = '';
+
+          $( response ).each(function(index, el) {
+            products += '<tr id="' + el.product_id + '"><td>'+ ( index + 1 ) +'</td>';
+            products += '<td>'+ el.name +'</td>';
+            products += '<td class="rating-td">' + starRating( el.rating ) + '</td></tr>';
           });
-          	$('tBody').html(tBody);
+        $('tbody').html( products );
+          // $('tbody').text( products );
         },
         error: function( xhr, ajaxOptions, thrownError ) {
-        	console.log( thrownError )             
+          console.log( thrownError )             
         }
-    }); 
+    });
+
 });
 
-//POST
-
-const convertRating = ( rating, id ) => {
-	let num = 1;
-	let stars = '<p id="'+ id +'">';
-	while( num <= Math.round( rating ) ){
-		stars += '<span class="colored-star" data-val = "' + num + '">*</span>';
-		num++;
-	}
-	if( Math.round( rating < 5 )){
-		while( num <= 5 ){
-			stars += '<span data-val = "' + num + '">*</span>';
-			num++;
-		}
-	}	
-	stars += '</p>';
-	return stars;
+// STARS FUNCTIONS 
+const starRating = ( rating ) => {
+  //5
+  let num = 1;
+  let starStr = '';
+  while( num <= Math.round( rating )){
+    starStr += '<span data-rating="'+ num +'" class="colored-star">*</span>';
+    num++;
+  }
+  if( Math.round( rating ) < 5 ){
+    while( num <= 5 ){
+      starStr += '<span data-rating="'+ num +'">*</span>';   
+      num++;
+    } 
+  }
+  return starStr;
 }
-
-//on hover - change stars color
-$('body').on('mouseenter', 'span', function(e){
-	// $(this).css({cursor: 'grab', color: '#FDCB04'});
-	$(this).addClass('temp-colored-star');
-	let upTo = $(this).data('val')
-	$(this).siblings('span').each(function(index, el) {
-		if( $(el).data('val') < upTo ){
-			$(el).addClass('temp-colored-star');
-		}
-	});
-})
-$('body').on('mouseleave', 'span', function(e){
-	// $(this).removeClass('temp-colored-star');
-	$('.temp-colored-star').removeClass('temp-colored-star');
-	
-})
-
-
-$('body').on('click', 'span', function(e){
-	const clickedStar = $(this),
-	//data
-	rating = $(clickedStar).data('val'), productId = $(clickedStar).parents('p').attr('id');
-	console.log(rating, productId)
-    $.ajax({
-        url: 'file_task2.php',
-        type: 'post',
-        data: 'rating=' + rating + '&product_id=' + productId,
-        dataType: 'json',      
-        success: function( response ) {
-          let rating = convertRating( response, productId );
-          $(clickedStar).parents('.rating-td').html(rating);
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            //process error
-        }
+//POST
+$('tbody').on('click', 'span', function(){
+  let rating = $(this).data('rating'), 
+      productId = $(this).parents('tr').attr('id'),    
+      elementClicked = $(this);
+      
+  $.ajax({
+          url: './file_task2.php',
+          type: 'post',
+          data: 'rating=' + rating + '&product_id=' + productId,
+          dataType: 'json',      
+          success: function( response ) {
+            console.log(response)
+            if( response === 'Success!'){
+              let newRating = starRating( rating );
+               $(elementClicked).parent().html(newRating);
+            }
+           
+          },
+          error: function( xhr, ajaxOptions, thrownError ) {
+            // console.log( thrownError )             
+          }
       });
-   })
+})
+
+$('tbody').on('mouseenter', 'span', function(){
+  let newRating = $(this).data('rating');
+  $(this).addClass('colored-star-preview');
+  console.log($(this).data('rating'))
+  $(this).siblings().each(function(index, el) {
+    console.log($(el).data('rating') < $(this).data('rating'));
+    if( $(el).data('rating') < newRating ){
+      $(el).addClass('colored-star-preview')
+    }
+  });
+});
+
+$('tbody').on('mouseleave', 'span', function(){
+  $(this).removeClass('colored-star-preview')
+  
+});
+

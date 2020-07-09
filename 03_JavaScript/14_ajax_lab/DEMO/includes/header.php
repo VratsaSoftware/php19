@@ -12,7 +12,9 @@ include 'includes/db_connect.php';
 		.colored-star{
 			color: #FDCB04;			
 		}
-			
+		.colored-star-preview{
+			color: #DC0AFB;
+		}			
 		span {
 			font-size: 40px
 		}
