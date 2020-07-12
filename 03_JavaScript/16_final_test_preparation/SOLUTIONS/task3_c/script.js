@@ -2,23 +2,34 @@ $('#btn').on('click', function(e){
 	e.preventDefault();
 	$('.error').remove();
 	let username = $('#name').val(), 
-		password = $('#pd').val(), flag = true;
+	password = $('#pd').val(), flag = true;	
+	$.ajax({
+		url: './file.php',
+		type: 'post',
+		data: 'username=' + username + '&password=' + password,
+		dataType: 'json',      
+		success: function( response ) {
+			if( response.success ){
+				alert('Success!');
+			} else {
+				if( response.error ){
+					console.log(response.error)
+					let error = response.error
 
-		// //validation
-		// if( !username.trim() ){
-		// 	$('#name')
-		// 	.before('<p class="error">Field Required</p>');
-		// 	flag = false;
-		// }
+					for( let ind in error ){
+						console.log(ind)
+						$('#' + ind)
+						.before('<p class="error">'+error[ind]+'</p>');
+					}
+				}
+			}
+		},
+			
 
-		// if( password.trim().length < 6 ){
-		// 	$('#pd')
-		// 	.before('<p class="error">Password must be at least 6 characters long!</p>');
-		// 	flag = false;
-		// }
+		error: function( xhr, ajaxOptions, thrownError ) {
+            // console.log( thrownError )             
+        }
+    });
+		
 
-		// if( flag ){
-		// 	alert('Success!')
-		// }
-
-})
+	})

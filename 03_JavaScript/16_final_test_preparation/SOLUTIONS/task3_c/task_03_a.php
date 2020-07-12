@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>task 03a</title>
+	<style type="text/css">
+		.error{
+			color: #FA0909;
+		}
+	</style>
 </head>
 <body>
 	<form id="login">
