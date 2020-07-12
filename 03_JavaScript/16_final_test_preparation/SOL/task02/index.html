@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task02</title>
+</head>
+<body>
+	<div id="wrapper"></div>
+	<script type="text/javascript">
+		// 4 li, във всяко от тях има по един a - елемент, с href и текст, 
+		let wrapper = document.getElementById('wrapper'), num =4, ulElement;
+
+		ulElement = document.createElement('ul');
+		for( let i = 0; i < num; i++ ){
+			let liElement, aElement;
+			liElement = document.createElement('li');
+			aElement = document.createElement('a');
+			aElement.setAttribute('href', 'page' + (i + 1) + '.html');
+			aElement.textContent = 'Link ' + (i + 1);
+			liElement.appendChild(aElement);
+			ulElement.appendChild(liElement);
+		}
+
+
+		wrapper.appendChild(ulElement);
+
+
+	</script>
+</body>
+</html>
