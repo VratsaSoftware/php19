@@ -6,16 +6,16 @@ include 'includes/db_connect.php';
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="shortcut icon" href="favicon.ico">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<style type="text/css">
 		.colored-star{
 			color: #FDCB04;			
 		}
-		.colored-star-preview{
-			color: #DC0AFB;
-		}			
+		.temp-colored-star {
+			color: #D707FD;
+		}
+	
 		span {
 			font-size: 40px
 		}
