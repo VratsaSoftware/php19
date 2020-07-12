@@ -1,4 +1,4 @@
- $('img').on('mouseover', function(e){
+ $('img').on('mouseover', function(){
  	let imgSrc = $(this).attr('src'), 
  	imgTitle = $(this).attr('alt'),
  	titleElement;
@@ -9,6 +9,6 @@
  	.css('width', '600px');
 
  	titleElement = $('<p>'+ imgTitle +'</p>').css('fontSize', '24px');
- 	
+
  	$('#img-container').prepend(titleElement)
  })
