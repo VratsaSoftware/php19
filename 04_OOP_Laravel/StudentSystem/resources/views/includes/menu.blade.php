@@ -6,6 +6,6 @@
 		<a href="{{ route('users.list') }}">Users</a>
 	</li>
 	<li>
-		<a href="">Courses</a>
+		<a href="{{ route('courses.list') }}">Courses</a>
 	</li>
 </ul>

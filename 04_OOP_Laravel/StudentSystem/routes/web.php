@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomePageController@index')->name('homepage');
 Route::get('/users', 'UsersController@index')->name('users.list');
+Route::get('/courses', 'CoursesController@index')->name('courses.list');
