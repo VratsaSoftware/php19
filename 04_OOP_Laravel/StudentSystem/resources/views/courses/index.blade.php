@@ -1,7 +1,10 @@
 @extends('layouts.master')
 @section('content')
+
 <ul>
-	<li>Courses 1</li>
-	<li>Courses 2</li>
+	@foreach( $courses as $course )
+		<li><a href="{{ route('levels.list', $course->id) }}">{{ $course->course_name }}</a></li>
+	@endforeach
 </ul>
+
 @endsection
