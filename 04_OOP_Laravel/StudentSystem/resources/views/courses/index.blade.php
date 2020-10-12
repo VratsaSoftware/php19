@@ -4,7 +4,7 @@
 <ul class="list-group">
 	@foreach( $courses as $course )
 		<li class="list-group-item">
-			<a href="{{ route('levels.course.list', $course->id) }}">
+			<a href="{{ route('courses.levels_list', $course->id) }}">
 				{{ $course->course_name }}
 			</a>
 		</li>

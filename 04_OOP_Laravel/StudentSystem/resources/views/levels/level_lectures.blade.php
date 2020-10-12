@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Levels list</h1>
+<h1>Lectures list</h1>
 
 <table class="table">
   <thead>
@@ -24,5 +24,6 @@
 		<td>{{ $lecture->lecture_name}}</td>
 	</tr>
 	@endforeach
+</tbody>
 </table>
 @endsection

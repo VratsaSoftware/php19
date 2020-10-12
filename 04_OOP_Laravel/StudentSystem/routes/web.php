@@ -23,9 +23,9 @@ Route::get('/users', 'UsersController@index')->name('users.list');
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
 
 Route::get('/courses', 'CoursesController@index')->name('courses.list');
+Route::get('/courses/{course}', 'CoursesController@courses_levels_list')->name('courses.levels_list');
 
 Route::get('/levels', 'LevelsController@levels_list')->name('levels');
-
 Route::get('/levels/{level}', 'LevelsController@show')->name('levels.show');
 
 
