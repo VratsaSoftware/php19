@@ -10,6 +10,7 @@
 		<a href="{{ route('profile', $user->id)}}">
 			{{ $user->name }}
 		</a>
+		 / {{ $user->role->role_name}} 
 	</li>	
 	@endforeach
 </ul>
