@@ -4,10 +4,13 @@
 <h1>
 	Users
 </h1>
-<ul>
+<ul class="list-group">
 	@foreach( $users as $user )
-	<li><a href="{{ route('profile', $user->id)}}">{{ $user->name }}</a></li>
-	
+	<li class="list-group-item">
+		<a href="{{ route('profile', $user->id)}}">
+			{{ $user->name }}
+		</a>
+	</li>	
 	@endforeach
 </ul>
 @endsection

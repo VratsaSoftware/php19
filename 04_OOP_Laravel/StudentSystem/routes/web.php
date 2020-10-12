@@ -19,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomePageController@index')->name('homepage');
 Route::get('/users', 'UsersController@index')->name('users.list');
+
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
-Route::get('/levels/{course}', 'LevelsController@index')->name('levels.list');
+
 Route::get('/courses', 'CoursesController@index')->name('courses.list');
+
+Route::get('/levels', 'LevelsController@levels_list')->name('levels');
+
+Route::get('/levels/{level}', 'LevelsController@show')->name('levels.show');
+
+
+Route::get('/lectures', 'LecturesController@lectures_list')->name('lectures');
+Route::get('/lectures/{level}', 'LecturesController@index')->name('level.lectures_list');
+Route::get('/lectures/{lecture}', 'LecturesController@show')->name('lectures.show');
+

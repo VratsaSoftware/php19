@@ -1,11 +1,17 @@
-<ul>
-	<li>
-		<a href="<?php echo route('homepage') ?>">Home</a>
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+		<a class="nav-link" href="<?php echo route('homepage') ?>">Home</a>
 	</li>
-	<li>
-		<a href="{{ route('users.list') }}">Users</a>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ route('users.list') }}">Users</a>
 	</li>
-	<li>
-		<a href="{{ route('courses.list') }}">Courses</a>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ route('courses.list') }}">Courses</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ route('levels') }}">Levels</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ route('lectures') }}">lectures</a>
 	</li>
 </ul>

@@ -1,13 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>{{ $course->course_name }}</h1>
+<h1><a href="{{ route('courses.list') }}">{{ $course->course_name }}</a></h1>
 
-<ul>
-	
+<ul class="list-group">	
 	@if( $course->levels )
 		@foreach( $course->levels as $level )
-			<li>{{ $level->level_name}}</li>
+			<li class="list-group-item">{{ $level->level_name}}</li>
 		@endforeach
 	@endif
 </ul>

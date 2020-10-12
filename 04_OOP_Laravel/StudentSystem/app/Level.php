@@ -12,4 +12,9 @@ class Level extends Model
    {
    	return $this->belongsTo('App\Course');
    }
+
+   public function lectures()
+   {
+   	return $this->hasMany('App\Lecture');
+   }
 }
