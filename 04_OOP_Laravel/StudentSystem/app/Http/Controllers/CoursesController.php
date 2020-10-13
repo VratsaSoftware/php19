@@ -20,4 +20,16 @@ class CoursesController extends Controller
 
 		return view( 'courses.course_level_list', compact( 'course' ) );
 	}
+
+	public function courses_students_list( Course $course )
+	{
+		$users = Course::find( $course->id )
+				->users()
+				->where('users.role_id', '=', 3)
+				->get();
+				// dd( $users );
+		// dd( $course->users()->where('users.role_id', '=', 3)->get());
+		return view( 'courses.course_students_list', compact( 'users', 'course' ) );
+
+	}
 }

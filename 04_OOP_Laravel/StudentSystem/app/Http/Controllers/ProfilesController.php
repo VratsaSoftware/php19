@@ -11,8 +11,13 @@ class ProfilesController extends Controller
     public function index(User $user)
     {
     	//TO DO PASS USER NAME
-    	$profile = Profile::find($user)->first();
+    	$profile = Profile::find( $user )->first();
+    	$courses = User::find( $user->id )
+    		->courses()
+    		->orderBy('course_name')
+    		->get();
     	
-    	return view('profiles.index', compact('profile', 'user'));
+
+    	return view('profiles.index', compact('profile', 'user', 'courses'));
     }
 }

@@ -12,4 +12,12 @@ class UsersController extends Controller
     	$users = User::all();
     	return view('users.index', compact('users'));
     }
+
+    public function user_courses( User $user )
+    {    	
+    	$courses = User::find($user)
+    		->courses()
+    		->orderBy('course_name')
+    		->get();
+    }
 }

@@ -14,4 +14,9 @@ class Course extends Model
 	{
 		return $this->hasMany('App\Level');
 	}
+
+	public function users()
+	{
+		return $this->belongsToMany('App\User');
+	}
 }

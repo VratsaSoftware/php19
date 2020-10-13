@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>ParibaCredit</name>
+    <code>OpenCartBG0001</code>
+    <version>3.4.0</version>
+    <author>OpenCartBulgaria</author>
+    <link>https://opencartbulgaria.com/</link>
+
+    <file path="catalog/controller/common/header.php">
+        <operation>
+            <search><![CDATA[$data['title'] = $this->document->getTitle();]]></search>
+            <add position="after"><![CDATA[
+                $this->document->addStyle('catalog/view/theme/default/stylesheet/pariba.css');
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/product/product.php">
+        <operation>
+            <search><![CDATA[$this->response->setOutput($this->load->view('product/product', $data));]]></search>
+            <add position="before"><![CDATA[
+                $data['pariba'] = $this->load->controller('extension/payment/pariba/product', $product_info);
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/product/product.twig">
+        <operation>
+            <search><![CDATA[<button class="compare" type="button" data-toggle="tooltip" title="{{ button_compare }} " onclick="compare.add('{{ product.product_id }} ');"><i class="fa fa-exchange"></i></button><br>]]></search>            
+            <add position="after"><![CDATA[                
+                {{ pariba }}
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/model/catalog/product.php">
+        <operation>
+            <search><![CDATA['date_modified'    => $query->row['date_modified'],]]></search>
+            <add position="after"><![CDATA[
+                'pariba_good_type'    => $query->row['pariba_good_type'],
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- ADMINISTRATION OCMOD -->
+    <file path="admin/controller/sale/order.php">
+        <operation>
+            <search><![CDATA[$this->response->setOutput($this->load->view('sale/order_info', $data));]]></search>
+            <add position="before"><![CDATA[
+               $data['pariba'] = $this->load->controller('extension/payment/pariba/getOrder', $order);
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/sale/order_info.twig">
+        <operation>
+            <search><![CDATA[<div class="row">]]></search>
+            <add position="after"><![CDATA[
+               {{ pariba }}
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/controller/catalog/product.php">
+        <operation>
+            <search>
+                <![CDATA[$data['languages'] = $this->model_localisation_language->getLanguages();]]>
+            </search>
+            <add position="after"><![CDATA[
+                $this->load->language('extension/payment/pariba');
+                $data['paribas_goods'] = array();
+                if (
+                    !empty($this->config->get('payment_pariba_merchantId')) &&
+                    !empty($this->config->get('payment_pariba_cert')) &&
+                    !empty($this->config->get('payment_pariba_key')) &&
+                    !empty($this->config->get('payment_pariba_password'))
+                ) {
+                    $this->load->library('pariba/pariba');
+                    $goods = $this->pariba->goodCategories(
+                        $this->config->get('payment_pariba_merchantId'),
+                        $this->config->get('payment_pariba_cert'),
+                        $this->config->get('payment_pariba_key'),
+                        $this->config->get('payment_pariba_password'),
+                        $test = $this->config->get('payment_pariba_test')
+                    );
+
+                    if (!empty($goods)) {
+                        foreach ($goods as $good) {
+                            $data['paribas_goods'][] = [
+                                'category_id' => $good->GoodCategoryId,
+                                'name' => $good->GoodCategoryName,
+                                'types' => $this->pariba->goodTypes($good->GoodCategoryId, $this->config->get('payment_pariba_cert'), $this->config->get('payment_pariba_key'), $this->config->get('payment_pariba_password'), $test = $this->config->get('payment_pariba_test'))
+                            ];
+                        }
+                    }
+                }
+
+                if (isset($this->request->post['pariba_good_type'])) {
+                    $data['pariba_good_type'] = $this->request->post['pariba_good_type'];
+                } elseif (!empty($product_info)) {
+                    $data['pariba_good_type'] = $product_info['pariba_good_type'];
+                } else {
+                    $data['pariba_good_type'] = '';
+                }
+
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/product_form.twig">
+        <operation>
+            <search><![CDATA[<label class="col-sm-2 control-label">{{ entry_store }}</label>]]></search>
+            <add position="before" offset="1"><![CDATA[
+                <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-product_pariba_good_type">{{ entry_pariba_good_type }}</label>
+                        <div class="col-sm-10">
+                            <select name="pariba_good_type" id="input-product_pariba_good_type" class="form-control">
+                                <option value="">{{ entry_pariba_good_type }}</option>
+                                {% for good in paribas_goods %}
+                                    <optgroup label="{{ good.name }}">
+                                        {% for type in good.types %}
+                                            <option value="{{ type.GoodTypeId }}" {% if type.GoodTypeId == pariba_good_type %} selected="selected" {% endif %}>
+                                                {{ type.GoodTypeName }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/model/catalog/product.php">
+        <operation>
+            <search><![CDATA[if (isset($data['product_store'])) {]]></search>
+            <add position="before"><![CDATA[
+
+            if (!empty($data['pariba_good_type'])) {
+                    $this->db->query("UPDATE " . DB_PREFIX . "product SET
+                        pariba_good_type = '" . $this->db->escape($data['pariba_good_type']) . "'
+                        WHERE product_id = '" . (int)$product_id . "'");
+
+            }
+
+            ]]></add>
+        </operation>
+    </file>
+</modification>
