@@ -35,3 +35,4 @@ Route::get('/lectures', 'LecturesController@lectures_list')->name('lectures');
 Route::get('/lectures/{level}', 'LecturesController@index')->name('level.lectures_list');
 Route::get('/lectures/{lecture}', 'LecturesController@show')->name('lectures.show');
 
+Route::resource('halls', 'HallsController');
