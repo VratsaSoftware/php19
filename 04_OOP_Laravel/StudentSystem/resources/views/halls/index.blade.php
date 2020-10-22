@@ -5,14 +5,28 @@
 <p>
 	<a href="{{ route('halls.create') }}" class="btn btn-success">Add New Hall</a>
 </p>
-<ul class="list-group">
-	@foreach( $halls as $hall )
-		<li class="list-group-item">			
-			<a href="{{ route('halls.show', $hall->id) }}">{{ $hall->hall_name }}</a> 
-			<a href="{{ route('halls.edit', $hall->id) }}">Edit</a> 
-			<a href="">Delete</a>
-		</li>
-	@endforeach
-</ul>
+<table class="table table-dark">
+	<thead>
+		<tr>
+			<th scope="col" class="text-center">#</th>
+			<th scope="col" class="text-center">Hall</th>
+			<th scope="col" class="text-center">***</th>
+			<th scope="col" class="text-center">***</th>
+		</tr>
+	</thead>
+	<tbody>
+		@php
+		$num = 1;
+		@endphp
+		@foreach( $halls as $hall )
+		<tr>
+			<td class="text-center"><?= $num++ ?></td>
+			<td class="text-center"><a href="{{ route('halls.show', $hall->id) }}">{{ $hall->hall_name }}</a> </td>
+			<td class="text-center"><a href="{{ route('halls.edit', $hall->id) }}">Edit</a> </td>
+			<td class="text-center"><a href="">Delete</a></td>
+		</tr>
+		@endforeach
+	</tbody>
+</table>	
 
 @endsection

@@ -55,8 +55,9 @@ class HallsController extends Controller
      */
     public function show(Hall $hall)
     {
-        $hall = Hall::find($hall);
-        dd($hall);
+        $hall = Hall::find($hall)->first();
+        
+        return view('halls.show', compact('hall'));
     }
 
     /**

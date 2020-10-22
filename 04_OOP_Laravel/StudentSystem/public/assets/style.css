@@ -1,7 +1,15 @@
 .content {
-	/*background-color: #F22525*/
+	background-color: #F22525
 }
 
 .admin-content {
-	/*background-color: #1EE519*/
+	background-color: #1EE519
+}
+
+a {
+	text-decoration: none;
+}
+
+td a {
+	color: #fff!important;
 }
