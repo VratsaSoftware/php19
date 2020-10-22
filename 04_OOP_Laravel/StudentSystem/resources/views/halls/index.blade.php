@@ -21,9 +21,9 @@
 		@foreach( $halls as $hall )
 		<tr>
 			<td class="text-center"><?= $num++ ?></td>
-			<td class="text-center"><a href="{{ route('halls.show', $hall->id) }}">{{ $hall->hall_name }}</a> </td>
-			<td class="text-center"><a href="{{ route('halls.edit', $hall->id) }}">Edit</a> </td>
-			<td class="text-center"><a href="">Delete</a></td>
+			<td class="text-center"><a href="{{ route('halls.show', $hall->id) }}" >{{ $hall->hall_name }}</a> </td>
+			<td class="text-center"><a href="{{ route('halls.edit', $hall->id) }}" class="btn btn-warning">Edit</a> </td>
+			<td class="text-center"><a href="" class="btn btn-danger">Delete</a></td>
 		</tr>
 		@endforeach
 	</tbody>
