@@ -14,7 +14,9 @@ class HallsController extends Controller
      */
     public function index()
     {
-        //
+        //TO DO - GET ALL HALLS
+        $halls = Hall::all();
+       return view('halls.index', compact('halls'));
     }
 
     /**
@@ -24,7 +26,7 @@ class HallsController extends Controller
      */
     public function create()
     {
-        //
+        return view("halls.create");
     }
 
     /**
@@ -35,7 +37,14 @@ class HallsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $hall = new Hall();
+
+       $hall->hall_name = $request->hall_name;
+
+       $hall->save();
+
+       return redirect()->route('halls.index');
+       // return redirect()->back();
     }
 
     /**
@@ -46,7 +55,8 @@ class HallsController extends Controller
      */
     public function show(Hall $hall)
     {
-        //
+        $hall = Hall::find($hall);
+        dd($hall);
     }
 
     /**
@@ -57,7 +67,9 @@ class HallsController extends Controller
      */
     public function edit(Hall $hall)
     {
-        //
+        $hall = Hall::find($hall)->first();
+
+        return view('halls.edit', compact('hall'));
     }
 
     /**
@@ -69,7 +81,7 @@ class HallsController extends Controller
      */
     public function update(Request $request, Hall $hall)
     {
-        //
+        dd($request);
     }
 
     /**
