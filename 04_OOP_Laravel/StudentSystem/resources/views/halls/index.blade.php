@@ -5,7 +5,7 @@
 <p>
 	<a href="{{ route('halls.create') }}" class="btn btn-success">Add New Hall</a>
 </p>
-<table class="table table-striped">
+<table class="table table-dark">
 	<thead>
 		<tr>
 			<th scope="col" class="text-center">#</th>
