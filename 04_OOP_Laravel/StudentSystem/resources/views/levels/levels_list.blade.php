@@ -12,9 +12,11 @@
     </tr>
   </thead>
   <tbody>
+
 	
 	@if( $levels )
 		@foreach( $levels as $level )
+		{{ dd($level)}}
 		<tr>
 			<td></td>
 			<td>{{ $level->level_name}}</td>

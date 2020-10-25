@@ -10,6 +10,6 @@ a {
 	text-decoration: none;
 }
 
-td a {
+.table-dark td a {
 	color: #fff!important;
 }

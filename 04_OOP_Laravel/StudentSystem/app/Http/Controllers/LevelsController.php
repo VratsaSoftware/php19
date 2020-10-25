@@ -3,22 +3,86 @@
 namespace App\Http\Controllers;
 
 use App\Level;
-use App\Course;
 use Illuminate\Http\Request;
 
 class LevelsController extends Controller
 {
-    public function index(Course $course)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-    	$course = Course::find($course)->first();
-
-    	return view('levels.index', compact('course'));
+        // $levels = Level::all();
+        $levels = Level::with('course', 'lectures')->get();
+       
+        return view('levels.levels_list', compact('levels'));
     }
 
-    public function levels_list()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-    	$levels = Level::all();
+        //
+    }
 
-    	return view('levels.levels_list', compact('levels'));
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Level  $level
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Level $level)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Level  $level
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Level $level)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Level  $level
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Level $level)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Level  $level
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Level $level)
+    {
+        //
     }
 }

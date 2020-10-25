@@ -22,4 +22,5 @@
 	@endforeach
 </tbody>
 </table>
+<a href="{{ route( 'add_level_to_course', $course->id ) }}" class="btn btn-success">Add new level</a>
 @endsection

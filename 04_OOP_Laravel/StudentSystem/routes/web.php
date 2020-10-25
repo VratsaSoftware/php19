@@ -23,12 +23,10 @@ Route::get('/users', 'UsersController@index')->name('users.list');
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
 
 //courses
-Route::get('/courses', 'CoursesController@index')->name('courses.list');
-Route::get('/courses/{course}', 'CoursesController@courses_levels_list')->name('courses.levels_list');
+Route::get('/courses/{course}/levels', 'CoursesController@courses_levels_list')->name('courses.levels_list');
 Route::get('/courses/{course}/students', 'CoursesController@courses_students_list')->name('courses.students_list');
-
-Route::get('/levels', 'LevelsController@levels_list')->name('levels');
-Route::get('/levels/{level}', 'LevelsController@show')->name('levels.show');
+Route::get('courses/{course}/add-level', 'CoursesController@add_level_to_course')->name('add_level_to_course');
+Route::post('courses/{course}/add-level', 'CoursesController@store_level_to_course')->name('store_level_to_course');
 
 
 Route::get('/lectures', 'LecturesController@lectures_list')->name('lectures');
@@ -36,3 +34,6 @@ Route::get('/lectures/{level}', 'LecturesController@index')->name('level.lecture
 Route::get('/lectures/{lecture}', 'LecturesController@show')->name('lectures.show');
 
 Route::resource('halls', 'HallsController');
+Route::resource('users', 'UsersController');
+Route::resource('levels', 'LevelsController');
+Route::resource('courses', 'CoursesController');

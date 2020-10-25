@@ -37,11 +37,16 @@ class HallsController extends Controller
      */
     public function store(Request $request)
     {
-       $hall = new Hall();
+       // $hall = new Hall();
 
-       $hall->hall_name = $request->hall_name;
+       // $hall->hall_name = $request->hall_name;
 
-       $hall->save();
+       // $hall->save();
+
+        $hall = Hall::create([
+            'hall_name' => $request->hall_name
+        ]);
+
 
        return redirect()->route('halls.index');
        // return redirect()->back();
@@ -82,7 +87,13 @@ class HallsController extends Controller
      */
     public function update(Request $request, Hall $hall)
     {
-        dd($request);
+        $hall = Hall::find( $hall->id );
+
+        $hall->hall_name = $request->hall_name;
+
+        $hall->save();
+
+        return redirect()->route('halls.index');
     }
 
     /**
@@ -93,6 +104,11 @@ class HallsController extends Controller
      */
     public function destroy(Hall $hall)
     {
-        //
+       // $hall = Hall::find( $hall )->first();
+       // $hall->delete();
+
+        Hall::find( $hall->id )->delete();
+
+       return redirect()->back();
     }
 }

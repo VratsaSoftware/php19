@@ -22,8 +22,15 @@
 		<tr>
 			<td class="text-center"><?= $num++ ?></td>
 			<td class="text-center"><a href="{{ route('halls.show', $hall->id) }}" >{{ $hall->hall_name }}</a> </td>
-			<td class="text-center"><a href="{{ route('halls.edit', $hall->id) }}" class="btn btn-warning">Edit</a> </td>
-			<td class="text-center"><a href="" class="btn btn-danger">Delete</a></td>
+			<td class="text-center"><a href="{{ route( 'halls.edit', $hall->id ) }}" class="btn btn-warning">Edit</a> </td>
+			<td class="text-center">
+				<a href="{{ route('halls.destroy', $hall->id)}}" class="btn btn-danger">Delete - Link</a>
+				<form method="POST" action="{{ route('halls.destroy', $hall->id) }}">
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+					<input type="submit" name="submit" value="DELETE-form" class="btn btn-info">
+				</form>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>
