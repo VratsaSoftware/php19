@@ -1,0 +1,24 @@
+@extends('layouts.admin')
+
+@section('content')
+<h1>Add level to course</h1>
+@if ($errors->any())
+<div class="alert alert-danger">      
+	<ul>          
+		@foreach ($errors->all() as $error)               
+		<li>{{ $error }}</li>
+		@endforeach       
+	</ul>
+</div>
+@endif
+<form method="POST" action="{{ route('store_level_to_course', $course->id )}}">
+	{{ csrf_field() }}
+	<input type="text" name="level">
+	@if($errors->has('level'))
+	<div class="col-sm-7 col-sm-offset-1 text-danger">
+		{{ $errors->first('level') }} 
+	</div>
+	@endif  
+	<input type="submit" name="submit" value="Add Level">
+</form>
+@endsection

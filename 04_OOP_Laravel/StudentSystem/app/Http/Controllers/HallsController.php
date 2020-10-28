@@ -12,9 +12,10 @@ class HallsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //TO DO - GET ALL HALLS
+       
         $halls = Hall::all();
        return view('halls.index', compact('halls'));
     }
@@ -42,12 +43,18 @@ class HallsController extends Controller
        // $hall->hall_name = $request->hall_name;
 
        // $hall->save();
+        $rules = [
+            'hall_name' => 'required|unique:halls|min:3',
+        ];
+
+
+        $this->validate( $request, $rules );
 
         $hall = Hall::create([
             'hall_name' => $request->hall_name
         ]);
 
-
+        dd( $hall );
        return redirect()->route('halls.index');
        // return redirect()->back();
     }

@@ -3,6 +3,10 @@
 @section('content')
 <h1>Levels list</h1>
 
+@if( Session::has('success_message') )
+	{{ Session::get('success_message') }}
+@endif
+
 <table class="table">
   <thead>
     <tr>

@@ -15,6 +15,8 @@
 		<a class="nav-link" href="{{ route('lectures') }}">Lectures</a>
 	</li>
 	<li class="nav-item">
+		
 		<a class="nav-link" href="{{ route('halls.index') }}">Halls</a>
+		
 	</li>
 </ul>

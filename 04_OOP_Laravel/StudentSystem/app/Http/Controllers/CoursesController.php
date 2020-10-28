@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Level;
 use App\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\AddLevelToCourseRequest;
 
 class CoursesController extends Controller
 {
@@ -109,14 +112,22 @@ class CoursesController extends Controller
         return view('courses.add_level_to_course', compact('course'));
     }
 
-    public function store_level_to_course( Request $request, Course $course )
+    public function store_level_to_course( AddLevelToCourseRequest $request, Course $course )
     {
-        Level::create([
+        $level = Level::create([
             'level_name' => $request->level,
             'course_id'  => $course->id
         ]);
 
-        return redirect()->route('courses.levels_list', $course->id );
+        $condition = false;
 
+        if( $condition ){
+            Session::flash('success_message','This is a message!');
+        } else {
+            Session::flash('success_message','This is a message 2!');
+        }
+
+        return redirect()->route('courses.levels_list', $course->id );
+        // return redirect()->route('courses.levels_list', $course->id )->with('success_message', 'Успешно добавихте ниво към курса!');
     }
 }
