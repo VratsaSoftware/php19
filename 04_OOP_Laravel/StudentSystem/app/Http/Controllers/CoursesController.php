@@ -114,6 +114,7 @@ class CoursesController extends Controller
 
     public function store_level_to_course( AddLevelToCourseRequest $request, Course $course )
     {
+        // dd($request);
         $level = Level::create([
             'level_name' => $request->level,
             'course_id'  => $course->id

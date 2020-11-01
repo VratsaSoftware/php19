@@ -12,6 +12,8 @@
 					<th scope="col" class="text-center">#</th>
 					<th scope="col" class="text-center">username</th>
 					<th scope="col" class="text-center">role</th>
+					<th scope="col" class="text-center">created at</th>
+					<th scope="col" class="text-center">updates at</th>
 					<th scope="col" class="text-center">***</th>
 					<th scope="col" class="text-center">***</th>
 				</tr>
@@ -28,7 +30,27 @@
 						</a>
 					</td>
 					<td>
-						{{ $user->role->role_name }}
+						@if( $user->role )
+							{{ $user->role->role_name }}
+						@endif
+					</td>
+					<td>
+						{{ $user->created_at }}
+						***
+						{{ $user->created_at->diffForHumans() }}
+						***
+						{{ $user->created_at->toDayDateTimeString() }}
+
+					</td>
+					<td>
+						@if( $user->updated_at )
+							{{ $user->updated_at }}
+							***
+							{{ $user->updated_at->diffForHumans()}}
+							***
+							{{ $user->updated_at->toDateTimeString()}}
+
+						@endif
 					</td>
 					<td>
 						<a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Edit</a>

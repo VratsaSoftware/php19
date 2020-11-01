@@ -25,7 +25,7 @@ class AddLevelToCourseRequest extends FormRequest
     {
         return [
            'level' => 'required|min:5',
-           'test'  => 'required'
+           // 'test'  => 'required'
         ];
     }
 
@@ -34,7 +34,7 @@ class AddLevelToCourseRequest extends FormRequest
         return [
             'level.required'  => 'Полето е задължително!',
             'level.min'       => 'Въведете най-малко 5 знака!',
-            'test.required'   => 'Полето е задължителн!'
+            // 'test.required'   => 'Полето е задължителн!'
         ];
     }
 }

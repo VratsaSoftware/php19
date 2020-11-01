@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use DB;
 
 class UsersController extends Controller
 {
@@ -15,9 +17,31 @@ class UsersController extends Controller
      */
     public function index()
     {
-       // $users = User::all();
-        $users = User::with('role')->get();
-        return view('users.index', compact('users'));
+       // // $users = User::all();
+        Carbon::setlocale('bg_Bg');
+        $date = Carbon::now();
+        
+        // dd( $date );
+        // //  Parse date with carbon - convert it to carbon object
+       // $carbonated_date = Carbon::parse($expire_date_string);
+        $dt = $date->toDateTimeString();
+        // dd( $dt );
+       //  $expire_date_string = '2016-07-27 12:45:32';
+       // //  Parse date with carbon - convert it to carbon object
+       // $carbonated_date = Carbon::parse($expire_date_string);
+       // //  Assuming today was 2016-07-27 12:45:32
+       // $diff_date = $carbonated_date->diffForHumans(Carbon::now());      
+
+       
+        //$users = User::with('role')->get();
+        // $users = DB::table('users')->select('id', 'name')->get();
+       
+        $users = User::get_all_users_with_roles();
+        $users_with_roles_count = User::count_users_with_roles();
+       
+        dd($users_with_roles_count);
+
+        return view('users.index', compact('users', 'diff_date'));
     }
 
     public function user_courses( User $user )
@@ -79,8 +103,17 @@ class UsersController extends Controller
         $user = User::find( $user->id );
         
         $roles = Role::all();
+
+        $plucked_roles = $roles->pluck('role_name', 'id');
+        // dd($plucked_roles);
+
+        // $plucked_roles = $roles->pluck('id');
+        //what to be the value, what to be the key
+        // $plucked_roles = $roles->pluck('role_name', 'id');
+        // dd($plucked_roles);
         
-        return view('users.edit', compact('user', 'roles'));
+        // return view('users.edit', compact('user', 'roles'));
+        return view('users.edit', compact('user', 'plucked_roles'));
     }
 
     /**

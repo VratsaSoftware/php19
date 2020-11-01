@@ -1,0 +1,27 @@
+@extends('layouts.admin')
+
+@section('content')
+<h1>Add level to course</h1>
+<i>Using LaravelCollective/Html</i>
+@if ($errors->any())
+<div class="alert alert-danger">      
+	<ul>          
+		@foreach ($errors->all() as $error)               
+		<li>{{ $error }}</li>
+		@endforeach       
+	</ul>
+</div>
+@endif
+
+{!! Form::open(['route' => ['store_level_to_course', $course->id ]]) !!}
+
+{!! Form::label('level', 'Level Name', ['class' => 'some-label-class', 'placeholder' => 'Level name']) !!}
+@if($errors->has('level'))
+	<div class="col-sm-7 col-sm-offset-1 text-danger">
+		{{ $errors->first('level') }} 
+	</div>
+@endif
+{!! Form::text('level', old('level'), ['class' => 'form-control']) !!}
+{!! Form::submit('Add level', ['class' => 'btn btn-success']) !!}
+{!! Form::close() !!}
+@endsection
