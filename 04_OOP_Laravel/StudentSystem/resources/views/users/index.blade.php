@@ -30,19 +30,23 @@
 						</a>
 					</td>
 					<td>
-						@if( $user->role )
+						@if( isset($user->role) )
 							{{ $user->role->role_name }}
 						@endif
 					</td>
 					<td>
+						@if( isset($user->created_at) )
 						{{ $user->created_at }}
 						***
 						{{ $user->created_at->diffForHumans() }}
 						***
 						{{ $user->created_at->toDayDateTimeString() }}
+						@endif
 
 					</td>
 					<td>
+						@if( isset($user->updated_at) )
+
 						@if( $user->updated_at )
 							{{ $user->updated_at }}
 							***
@@ -50,6 +54,7 @@
 							***
 							{{ $user->updated_at->toDateTimeString()}}
 
+						@endif
 						@endif
 					</td>
 					<td>

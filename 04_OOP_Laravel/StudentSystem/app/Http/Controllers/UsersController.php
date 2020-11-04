@@ -39,7 +39,7 @@ class UsersController extends Controller
         $users = User::get_all_users_with_roles();
         $users_with_roles_count = User::count_users_with_roles();
        
-        dd($users_with_roles_count);
+       
 
         return view('users.index', compact('users', 'diff_date'));
     }

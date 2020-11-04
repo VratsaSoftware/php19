@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomePageController@index')->name('homepage');
 Route::get('/users', 'UsersController@index')->name('users.list');
 
-Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile')->middleware('auth');
 
 //courses
 Route::get('/courses/{course}/levels', 'CoursesController@courses_levels_list')->name('courses.levels_list');
@@ -33,7 +33,26 @@ Route::get('/lectures', 'LecturesController@lectures_list')->name('lectures');
 Route::get('/lectures/{level}', 'LecturesController@index')->name('level.lectures_list');
 Route::get('/lectures/{lecture}', 'LecturesController@show')->name('lectures.show');
 
-Route::resource('halls', 'HallsController');
-Route::resource('users', 'UsersController');
-Route::resource('levels', 'LevelsController');
+
+
+//users not to edit, add, delete the halls
+
+
 Route::resource('courses', 'CoursesController');
+
+
+Route::middleware(['auth'])->group(function () {
+	Route::resource('halls', 'HallsController')->only([
+		'index', 'show'
+	]);
+	Route::resource('halls', 'HallsController')->except([
+		'index', 'show'
+	])->middleware('isAdmin');
+
+	Route::resource('levels', 'LevelsController');
+	Route::resource('users', 'UsersController')->middleware('isAdmin');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
