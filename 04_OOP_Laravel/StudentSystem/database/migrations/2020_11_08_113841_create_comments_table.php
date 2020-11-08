@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('body');
             $table->string('commentable_type');
             $table->unsignedBigInteger('commentable_id');   // homework or event        
-            $table->unsignedBigInteger('lecture_id');     //user who left the comment -        
+            $table->unsignedBigInteger('user_id');     //user who left the comment -        
             $table->timestamps();
         });
     }

@@ -32,6 +32,9 @@ Route::get('/lectures', 'LecturesController@lectures_list')->name('lectures');
 Route::get('/lectures/{level}', 'LecturesController@index')->name('level.lectures_list');
 Route::get('/lectures/{lecture}', 'LecturesController@show')->name('lectures.show');
 
+//events
+Route::get('/events', 'EventsController@index')->name('events.index');
+Route::get('/events/{event}', 'EventsController@show')->name('events.show');
 
 
 //users not to edit, add, delete the halls
@@ -43,9 +46,12 @@ Route::resource('courses', 'CoursesController');
 Route::middleware(['auth'])->group(function () {
 	Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
 
-	//NEW ROUTE
+	//NEW ROUTES
 	Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit');
 	Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update');
+
+	Route::post('/events/{event}/comment', 'EventsController@add_comment_to_event')->name('events.add_comment');
+
 
 	Route::resource('halls', 'HallsController')->only([
 		'index', 'show'
