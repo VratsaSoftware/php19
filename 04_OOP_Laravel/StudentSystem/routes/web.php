@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomePageController@index')->name('homepage');
 Route::get('/users', 'UsersController@index')->name('users.list');
 
-Route::get('/profile/{user}', 'ProfilesController@index')->name('profile')->middleware('auth');
 
 //courses
 Route::get('/courses/{course}/levels', 'CoursesController@courses_levels_list')->name('courses.levels_list');
@@ -42,6 +41,12 @@ Route::resource('courses', 'CoursesController');
 
 
 Route::middleware(['auth'])->group(function () {
+	Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
+
+	//NEW ROUTE
+	Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit');
+	Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update');
+
 	Route::resource('halls', 'HallsController')->only([
 		'index', 'show'
 	]);
