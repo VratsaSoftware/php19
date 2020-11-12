@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::resource('books', 'BooksController');
+Route::resource('books', 'BooksController')->except(['index']);
+Route::get('/', 'BooksController@index')->name('books.index');
