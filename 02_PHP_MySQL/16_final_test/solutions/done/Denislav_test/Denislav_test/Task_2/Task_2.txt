@@ -1,9 +1,0 @@
-1/ SELECT p.`production_name` FROM `productions` p JOIN `directors` d ON p.`director_id` = d.`director_id` WHERE p.`date_deleted` IS NULL AND `director_name` = "Christopher Nolan" ORDER BY `year` DESC LIMIT 2 
-
-2/ SELECT AVG(p.`income`) AS `avarage_income` FROM `productions` p JOIN `genres` g ON p.`genre_id` = g.`genre_id` WHERE `genre_name` = "thriller" AND p.`date_deleted` IS NULL 
-
-
-3/ SELECT p.`production_id`, p.`production_name`, p.`year`, d.`director_name`, p.`IMDB_index`, p.`tickets_sold`, p.`income`, c.`country_name`, g.`genre_name` FROM `productions` p JOIN `directors` d ON p.`director_id` = d.`director_id` JOIN `countries` c ON p.`country_id` = c.`id` JOIN `genres` g ON p.`genre_id` = g.`genre_id` WHERE p.`date_deleted` IS NULL 
-
-
-4/ SELECT p.`production_name` FROM `reviews` r JOIN `productions` p ON r.`film_id` = p.`production_id` WHERE r.`date_deleted` IS NULL ORDER BY COUNT(`film_id`) DESC LIMIT 1 

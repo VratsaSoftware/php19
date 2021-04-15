@@ -1,7 +1,0 @@
-1. SELECT COUNT(*) FROM `reviews` WHERE `author_id` = 3
-
-2. SELECT MIN(`IMDB_index`) FROM `productions` WHERE `genre_id` = 3
-
-3. SELECT `production_name`, `review`, `magazine_name`, `name` FROM `reviews` JOIN `productions` ON `production_id` = `film_id` JOIN `magazinez` ON reviews.magazine_id = magazinez.magazine_id JOIN `film_critics` ON film_critic_id = author_id
-
-4. SELECT `year` FROM `productions` GROUP BY `year` ORDER BY COUNT(*) DESC LIMIT 1;

@@ -1,4 +1,0 @@
-1/SELECT `production_name` FROM `productions` HAVING MAX(`income`)LIMIT 2
-2/SELECT `production_name`,director_name,genre_name, country_name FROM `productions` p JOIN directors d ON p.`director_id`= d.director_id JOIN genres g ON p.`genre_id`=g.`genre_id` JOIN countries c ON p.country_id=c.id ORDER BY director_name
-3/SELECT COUNT(`tickets_sold`)FROM `productions` p JOIN directors d ON p.`director_id`= d.director_id WHERE director_name="Stieven Spielberg"
-4/SELECT genre_name FROM `productions` p JOIN directors d ON p.`director_id`= d.director_id JOIN genres g ON p.`genre_id`=g.`genre_id` HAVING MAX(p.income)
